@@ -1,29 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>MateLeague</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
 <body>
-         
-    <nav class="navbar navbar-expand-sm navbar-dark bg-black">
+    <nav class="mi-navbar">
+        <div class="nav-contenedor">
+            <a class="nav-logo" href="#">
+                <img src="img/logo.jpg" alt="Logo MateLeague">
+            </a>
+            <button class="nav-hamburguesa" id="btnMenu" aria-label="Abrir menú">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links" id="menuNavegacion">
+                <li><a href="#inicio" class="activo">Inicio</a></li>
+                <li class="tiene-dropdown">
+                    <a href="#clubes">Clubes</a>
+                    <ul class="submenu">
+                        <li><a href="#todos-los-clubes">Todos los clubes</a></li>
+                        <li><a href="#agregar-club">Agregar club</a></li>
+                        <li class="separador"></li>
+                        <li><a href="#estadisticas-clubes">Estadísticas</a></li>
+                    </ul>
+                </li>
+                <li class="tiene-dropdown">
+                    <a href="#jugadores">Mis Jugadores</a>
+                    <ul class="submenu">
+                        <li><a href="#ver-jugadores">Ver jugadores</a></li>
+                        <li><a href="#agregar-jugador">Agregar jugador</a></li>
+                        <li class="separador"></li>
+                        <li><a href="#transferencias">Transferencias</a></li>
+                    </ul>
+                </li>
+                <li><a href="#comunicados">Comunicados</a></li>
 
-                <a class="navbar-brand href=#">logo</a>"
+                <li class="tiene-dropdown">
+                    <a href="#fixture">Fixture</a>
+                    <ul class="submenu">
+                        <li><a href="#proximos">Próximos partidos</a></li>
+                        <li><a href="#resultados">Resultados</a></li>
+                        <li class="separador"></li>
+                        <li><a href="#calendario">Calendario completo</a></li>
+                    </ul>
+                </li>
+                <li><a href="#posiciones">Tabla de Posiciones</a></li>
 
-  <a class="navbar-brand" href="#">Navbar</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-    <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Features</a>
-      <a class="nav-item nav-link" href="#">Pricing</a>
-      <a class="nav-item nav-link disabled" href="#">Disabled</a>
-    </div>
-  </div>
-</nav>
+            </ul>
+        </div>
+    </nav>
 </body>
 </html>
