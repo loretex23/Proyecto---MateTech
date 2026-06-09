@@ -21,7 +21,8 @@
                     echo "Nombre del usuario"; 
                 ?>
             </span>
-            <img src="https://static.vecteezy.com/..." alt="Avatar Logo" class="rounded-pill nav-avatar"> 
+             <img src="https://static.vecteezy.com/system/resources/previews/006/303/647/non_2x/job-waiter-logo-icon-symbol-designs-vector.jpg" 
+             alt="Avatar Logo" style="width:40px;" class="rounded-pill">
         </a>
     </div>
 </nav>
