@@ -1,4 +1,4 @@
-     <form action="/action_page.php" class="login-caja">
+     <form class="login-caja" method="post">
         <div class="mb-3 mt-3">
             <label for="uname" class="form-label">Username:</label>
             <input type="text" class="form-control" id="uname" placeholder="Enter username" name="uname">
@@ -17,4 +17,14 @@
     </label>
   </div>
   <button type="submit" class="btn">Submit</button>
+   <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['uname'];
+    $email = $_POST['email'];
+    $password = $_POST['pswd'];
+    echo "<div class='mt-3'>Successful!";
+  } elseif (isset($_GET['error'])) {
+    echo "<div class='alert alert-danger mt-3' role='alert'>";
+    echo htmlspecialchars($_GET['error']);
+    echo "</div>";//
+  } ?>
 </form>
