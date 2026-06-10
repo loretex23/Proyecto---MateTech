@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-            <img src="img/logo.jpg" alt="Avatar Logo" class="rounded-pill nav-logo"> 
+            <img src="img/Logo_no_letters.jpeg" alt="Avatar Logo" class="rounded-pill nav-logo"> 
             <span class="navbar-text">MateTech</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">

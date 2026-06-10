@@ -15,6 +15,9 @@
         <h1>Posiciones de la liga</h1>
         <p>Este es el contenido principal de la página de posiciones.</p>
     </div>
+   <div>
+ <?php include 'footer.php'; ?>
+ </div>
 
 </body>
 </html>

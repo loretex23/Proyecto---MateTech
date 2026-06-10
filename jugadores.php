@@ -15,6 +15,8 @@
         <h1>Jugadores</h1>
         <p>Este es el contenido principal de la página de jugadores.</p>
     </div>
-
+    <div>
+ <?php include 'footer.php'; ?>
+ </div>
 </body>
 </html>

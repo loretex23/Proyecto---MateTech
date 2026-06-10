@@ -15,6 +15,9 @@
         <h1>Bienvenidos a MateTech</h1>
         <p>Este es el contenido principal de la página de inicio.</p>
     </div>
+    <div>
+  <?php include 'footer.php'; ?>
+    </div>
 
 </body>
 </html>
