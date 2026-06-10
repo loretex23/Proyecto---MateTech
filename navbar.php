@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
             <img src="img/Logo_no_letters.jpeg" alt="Avatar Logo" class="rounded-pill nav-logo"> 
