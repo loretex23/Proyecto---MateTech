@@ -1,11 +1,11 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg" ID="navbar">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-            <img src="img/Logo_no_letters.jpeg" alt="Avatar Logo" class="rounded-pill nav-logo"> 
-            <span class="navbar-text">MateTech</span>
+            <img src="img/Logo_no_letters.jpeg" alt="Avatar Logo" class="rounded-pill nav-logo" id="nav-logo"> 
+            <span class="navbar-text" id="navbar-text">MateTech</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
-           <ul class="navbar-nav">
+           <ul class="navbar-nav" ID="nav-list">
     <?php
     $pagina_actual = basename($_SERVER['PHP_SELF']);
     ?>
@@ -24,11 +24,7 @@
     
     <div class="container-fluid-right">
         <a class="navbar-brand" href="#">
-            <span class="navbar-text">
-                <?php 
-                    echo "Nombre del usuario"; 
-                ?>
-            </span>
+          
              <img src="https://static.vecteezy.com/system/resources/previews/006/303/647/non_2x/job-waiter-logo-icon-symbol-designs-vector.jpg" 
              alt="Avatar Logo" style="width:40px;" class="rounded-pill">
         </a>

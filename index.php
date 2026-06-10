@@ -18,5 +18,8 @@
     <div>
     <?php include 'form.php'; ?>
     </div>
+    <div>
+    <?php include 'footer.php'; ?>
+    </div>
 </body>
 </html>
