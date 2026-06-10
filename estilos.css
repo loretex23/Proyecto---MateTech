@@ -2,13 +2,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 1rem; /* Un pequeño espacio al borde derecho */
+  padding-right: 1rem;
 }
 .navbar-nav-center {
   display: flex;
   justify-content: center;
   align-items: center;
-  flex: 1; /* Esto hace que el menú ocupe todo el espacio disponible */
+  flex: 1;
 }
 .nav-logo,
 .nav-avatar {
@@ -23,7 +23,7 @@
 
 .navbar-nav .nav-link.active {
   color: #ffffff !important;
-  border-bottom: 2px solid #e9e8e7; /* Línea amarilla abajo del ítem activo */
+  border-bottom: 2px solid #e9e8e7;
 }
 
 .foot {
