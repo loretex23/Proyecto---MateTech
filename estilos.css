@@ -1,15 +1,27 @@
 .container-fluid-right {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 1rem; /* Un pequeño espacio al borde derecho */
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 1rem; /* Un pequeño espacio al borde derecho */
 }
 .navbar-nav-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex: 1; /* Esto hace que el menú ocupe todo el espacio disponible */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1; /* Esto hace que el menú ocupe todo el espacio disponible */
 }
-.nav-logo, .nav-avatar {
-    width: 40px;
+.nav-logo,
+.nav-avatar {
+  width: 40px;
+}
+.nav-link {
+  color: #fff;
+  font-size: 1.1rem;
+  padding: 0.5rem 1rem;
+  font-family: "Arial", monospace;
+}
+
+.navbar-nav .nav-link.active {
+  color: #ffffff !important;
+  border-bottom: 2px solid #e9e8e7; /* Línea amarilla abajo del ítem activo */
 }

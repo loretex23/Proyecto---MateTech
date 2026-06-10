@@ -5,12 +5,22 @@
             <span class="navbar-text">MateTech</span>
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link active" href="index.php">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="jugadores.php">Jugadores</a></li>
-                <li class="nav-item"><a class="nav-link" href="clubes.php">Clubes</a></li>
-                <li class="nav-item"><a class="nav-link" href="posiciones.php">Posiciones</a></li>
-            </ul>
+           <ul class="navbar-nav">
+    <?php
+    $pagina_actual = basename($_SERVER['PHP_SELF']);
+    ?>
+
+    <li class="nav-item">
+        <a class="nav-link <?php echo ($pagina_actual == 'index.php') ? 'active' : ''; ?>" href="index.php">Home</a></li>
+    <li class="nav-item">
+        <a class="nav-link <?php echo ($pagina_actual == 'jugadores.php') ? 'active' : ''; ?>" href="jugadores.php">Jugadores</a> </li>
+    <li class="nav-item">
+        <a class="nav-link <?php echo ($pagina_actual == 'clubes.php') ? 'active' : ''; ?>" href="clubes.php">Clubes</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link <?php echo ($pagina_actual == 'posiciones.php') ? 'active' : ''; ?>" href="posiciones.php">Posiciones</a>
+    </li>
+</ul>
         </div>
     </div>
     
