@@ -41,9 +41,9 @@ CREATE TABLE `categorias` (
 
 CREATE TABLE `club` (
   `ClubID` int(11) NOT NULL,
-  `NombreClub` int(11) NOT NULL,
-  `Usuario` int(11) NOT NULL,
-  `Contraseña_hash` varchar(18) NOT NULL DEFAULT 'NOT_NULL'
+  `NombreClub` varchar(20) NOT NULL,
+  `Usuario` varchar(20) NOT NULL,
+  `Contraseña_hash` varchar(255) NOT NULL DEFAULT 'NOT_NULL'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------

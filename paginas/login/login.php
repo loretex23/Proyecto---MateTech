@@ -1,20 +1,22 @@
-    <!DOCTYPE html>
+   <?php include "../../sql/basededatos.php";  ?>
+
+   <!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="estilos.css" rel="stylesheet">
+        <link href="../../estilos.css" rel="stylesheet">
         <title>Inicio de sesión</title>
     </head>
     <body>
     <?php include 'navbar_login.php'; ?>
 
     <div>
-    <?php include 'form.php'; ?>
+    <?php include '../diseños/form.php'; ?>
     </div> 
  <div> 
-    <?php include 'footer.php'; ?>
+    <?php include '../diseños/footer.php'; ?>
  </div>
 
     </body>
