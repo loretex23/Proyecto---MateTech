@@ -1,4 +1,5 @@
 <nav class="navbar navbar-expand-lg" ID="navbar">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
             <img src="img/LogoFlow.png" alt="Avatar Logo" class="rounded-pill nav-logo" id="nav-logo"> 
@@ -21,16 +22,15 @@
 </ul>
         </div>
     </div>
-    
-<div class="dropdown">
-  <button type="button" class="btn-primary dropdown-toggle" data-bs-toggle="dropdown">
+
+    <div class="dropdown">
+  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
     <img src="https://static.vecteezy.com/system/resources/previews/006/303/647/non_2x/job-waiter-logo-icon-symbol-designs-vector.jpg" 
     alt="Avatar Logo" style="width:40px;" class="rounded-pill">
   </button>
-  <ul class="dropdown-menu">
-    <li><a class="dropdown-item" href="#">Link 1</a></li>
-    <li><a class="dropdown-item" href="#">Link 2</a></li>
-    <li><a class="dropdown-item" href="#">Link 3</a></li>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><a class="dropdown-item" href="config.php">Configuración</a></li>
+    <li><a class="dropdown-item" style="color: red;" href="ssn_closed.php">Cerrar Sesión</a></li>
   </ul>
 </div>
 </nav>

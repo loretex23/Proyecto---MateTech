@@ -12,7 +12,7 @@
       <input class="form-check-input" type="checkbox" name="remember"> Remember me
     </label>
   </div>
-  <button type="s  b bubmit" class="btn">Submit</button>
+  <button type="s  b bubmit" class="btn-submit">Submit</button>
    <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['uname'];
     $password = $_POST['pswd'];
