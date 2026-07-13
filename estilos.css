@@ -20,6 +20,13 @@
 .nav-logo,
 .nav-avatar {
   width: 38px;
+  background-color: #fff;
+}
+
+.web-logo {
+  width: 150px;
+  margin-left: 15px;
+  margin-bottom: 8px
 }
 
 .navbar-text {
