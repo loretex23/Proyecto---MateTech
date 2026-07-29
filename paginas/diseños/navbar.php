@@ -2,8 +2,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
     <div class="container-fluid">
         <a class="navbar-brand" href="index.php">
-            <img src="img/LogoFlow.png" alt="Avatar Logo" class="rounded-pill nav-logo" id="nav-logo"> 
-            <img src="img/LeagueFlow.png" alt="Avatar Logo" class="rounded-pill web-logo" id="web-logo">
+            <img src="../img/LogoFlow.png" alt="Avatar Logo" class="rounded-pill nav-logo" id="nav-logo"> 
+            <img src="../img/LeagueFlow.png" alt="Avatar Logo" class="rounded-pill web-logo" id="web-logo">
         </a>
         <div class="collapse navbar-collapse" id="navbarNav">
            <ul class="navbar-nav" ID="nav-list">
@@ -29,8 +29,13 @@
     alt="Avatar Logo" style="width:40px;" class="rounded-pill">
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
+<<<<<<< HEAD:navbar.php
     <li><a class="dropdown-item" href="config.php">Configuración</a></li>
     <li><a class="dropdown-item" style="color: red;" href="ssn_closed.php">Cerrar Sesión</a></li>
+=======
+    <li><a class="dropdown-item" href="ajustes.php">Ajustes</a></li>
+    <li><a class="dropdown-item" href="login/ssn_closed.php">Cerrar sesión</a></li>
+>>>>>>> 892e46dc9e5009c297530b2003b897005fb6b7e5:paginas/diseños/navbar.php
   </ul>
 </div>
 </nav>

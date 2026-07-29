@@ -136,11 +136,7 @@ footer {
   font-family: "Arial", monospace;
   padding: 0 8px;
 }
-.navbar {
-  margin-bottom: 20px;
-  height: 68px;
-  background-color: #1a4731;
-}
+
 .nav-list {
   display: flex;
   justify-content: right;
@@ -160,6 +156,7 @@ footer {
   padding: 0 8px;
 }
 
+
 .navbar {
   position: fixed;
   top: 0;
@@ -170,6 +167,7 @@ footer {
   z-index: 1000;
   display: flex;
   align-items: center;
+  margin-bottom: 20px;
 }
 
 body {
