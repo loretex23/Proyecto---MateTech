@@ -3,7 +3,7 @@ session_start();
 
 if (!isset($_SESSION["ClubID"])) {
 
-    header("Location: login.php");
+    header("Location: login/login.php");
     exit;
 
 }

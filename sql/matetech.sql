@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-07-2026 a las 13:17:04
+-- Tiempo de generación: 30-07-2026 a las 15:13:33
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -40,11 +40,20 @@ CREATE TABLE `categorias` (
 --
 
 CREATE TABLE `club` (
+  `Rol` varchar(20) NOT NULL,
   `ClubID` int(11) NOT NULL,
   `NombreClub` varchar(20) NOT NULL,
   `Usuario` varchar(20) NOT NULL,
   `Contraseña_hash` varchar(255) NOT NULL DEFAULT 'NOT_NULL'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `club`
+--
+
+INSERT INTO `club` (`Rol`, `ClubID`, `NombreClub`, `Usuario`, `Contraseña_hash`) VALUES
+('Club', 0, 'club1', 'club1@gmail.com', '$2y$10$wbqtbUsMmh//UlOUkFpt1enTBmsMf5blSQiam.bF9g6VQqJeGcZ1W'),
+('Admin', 1, 'admin', 'admin@admin.com', '$2y$10$DeN7avQ0/yLRlrvnsG33MOg6RYE9GCWtjdTGndbqtG6o/dCEfeD/q');
 
 -- --------------------------------------------------------
 
@@ -62,6 +71,10 @@ CREATE TABLE `jugadores` (
   `CategoriaID` int(11) NOT NULL,
   `FechaNacimiento` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Índices para tablas volcadas
+--
 
 --
 -- Indices de la tabla `categorias`
@@ -82,5 +95,6 @@ ALTER TABLE `jugadores`
   ADD PRIMARY KEY (`CI`);
 COMMIT;
 
-Alter table `´jugadores` add foreign key (`ClubID`) references `club`(`ClubID`);
-Alter table `jugadores` add foreign key (`CategoriaID`) references `categorias`(`CategoriaID`);
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

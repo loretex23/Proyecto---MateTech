@@ -1,4 +1,7 @@
-   <?php include "../../sql/basededatos.php";  ?>
+   <?php 
+   session_start();
+   include "../../sql/basededatos.php";  
+   ?>
 
    <!DOCTYPE html>
     <html lang="en">
@@ -10,10 +13,58 @@
         <title>Inicio de sesión</title>
     </head>
     <body>
-    <?php include 'navbar_login.php'; ?>
+   <nav class="navbar navbar-expand-lg" ID="navbar">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../img/LogoFlow.png" alt="Logo" class="rounded-pill nav-logo">
+            <img src="../../img/LeagueFlow.png" alt="LeagueFlow" class="rounded-pill web-logo"> 
+        </a>
+    </div>
+</nav>
 
     <div>
-    <?php include '../diseños/form.php'; ?>
+    <form action="/web/validar_login.php" class="login-caja" method="POST">
+
+   
+
+    <div class="mb-3">
+        <label>Email</label>
+
+        <input
+            type="email"
+            class="form-control"
+            name="email"
+            required>
+    </div>
+
+    <div class="mb-3">
+        <label>Contraseña</label>
+
+        <input
+            type="password"
+            class="form-control"
+            name="password"
+            required>
+    </div>
+
+    <button type="submit" class="btn-submit">
+        Iniciar sesión
+    </button>
+
+    <br>
+    <br>
+
+     <?php
+    if (isset($_SESSION["error"])) {
+        echo '
+        <div class="alert alert-danger" role="alert">
+            <strong>¡Error!</strong> ' . $_SESSION["error"] . '
+        </div>';
+        unset($_SESSION["error"]);
+    }
+    ?>
+
+</form>
     </div> 
  <div> 
     <?php include '../diseños/footer.php'; ?>

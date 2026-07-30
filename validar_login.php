@@ -17,20 +17,22 @@ $sql->execute([$email]);
 $club = $sql->fetch(PDO::FETCH_ASSOC);
 
 if (!$club) {
-    die("El usuario no existe.");
-}
-
-if (password_verify($password, $club["Contraseña_hash"])) {
-
-    $_SESSION["ClubID"] = $club["ClubID"];
-    $_SESSION["NombreClub"] = $club["NombreClub"];
-    $_SESSION["Usuario"] = $club["Usuario"];
-
-    header("Location: paginas/index.php");
+    $_SESSION["error"] = "El usuario no existe.";
+    header("Location: paginas/login/login.php");
     exit;
-
-} else {
-
-    die("Contraseña incorrecta.");
-
 }
+
+if (!password_verify($password, $club["Contraseña_hash"])) {
+    $_SESSION["error"] = "Contraseña incorrecta.";
+    header("Location: paginas/login/login.php");
+    exit;
+}
+
+$_SESSION["ClubID"] = $club["ClubID"];
+$_SESSION["NombreClub"] = $club["NombreClub"];
+$_SESSION["Usuario"] = $club["Usuario"];
+
+$_SESSION["Rol"] = $club["Rol"];
+
+header("Location: paginas/index.php");
+exit;

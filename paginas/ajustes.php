@@ -20,7 +20,10 @@
 
 
 
-    <?php include 'diseños/footer.php'; ?>
     </div>
 </body>
+<footer>
+        &copy; 2026 MateTech. Todos los derechos reservados.
+        <img class="foot" src="../img/logo.png" alt="Logo">
+    </footer>
 </html>

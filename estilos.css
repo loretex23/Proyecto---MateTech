@@ -84,6 +84,17 @@ footer {
   margin-top: 30px;
 }
 
+.btn-submit {
+  background-color: #1c49ec;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 45px;
+}
+
 .btn {
   background-color: #1c49ec;
   color: #ffffff;
