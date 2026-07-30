@@ -22,20 +22,15 @@
 </ul>
         </div>
     </div>
-
-    <div class="dropdown">
-  <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown">
+    
+<div class="dropdown">
+  <button type="button" class="btn-primary dropdown-toggle" data-bs-toggle="dropdown">
     <img src="https://static.vecteezy.com/system/resources/previews/006/303/647/non_2x/job-waiter-logo-icon-symbol-designs-vector.jpg" 
     alt="Avatar Logo" style="width:40px;" class="rounded-pill">
   </button>
   <ul class="dropdown-menu dropdown-menu-end">
-<<<<<<< HEAD:navbar.php
-    <li><a class="dropdown-item" href="config.php">Configuración</a></li>
-    <li><a class="dropdown-item" style="color: red;" href="ssn_closed.php">Cerrar Sesión</a></li>
-=======
     <li><a class="dropdown-item" href="ajustes.php">Ajustes</a></li>
     <li><a class="dropdown-item" href="login/ssn_closed.php">Cerrar sesión</a></li>
->>>>>>> 892e46dc9e5009c297530b2003b897005fb6b7e5:paginas/diseños/navbar.php
   </ul>
 </div>
 </nav>
