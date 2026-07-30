@@ -1,8 +1,5 @@
-<<<<<<< HEAD:clubes.php
-<?php include 'auth.php'; ?>
-=======
+<?php include 'login/auth.php'; ?>
 <?php require_once "login/auth.php";?>
->>>>>>> 892e46dc9e5009c297530b2003b897005fb6b7e5:paginas/clubes.php
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,11 +18,9 @@
         <h1>Clubes de la liga</h1>
         <p>Este es el contenido principal de la página de clubes.</p>
     </div>
-    <div>
- </div>
-</body>
 <footer>
         &copy; 2026 MateTech. Todos los derechos reservados.
         <img class="foot" src="../img/logo.png" alt="Logo">
     </footer>
+</body>
 </html>

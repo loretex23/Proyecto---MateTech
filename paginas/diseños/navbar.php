@@ -45,7 +45,7 @@ $rol = $_SESSION["Rol"] ?? "";
     <li><a class="dropdown-item" href="login/ssn_closed.php">Cerrar sesión</a></li>
   </ul>
 </div>
-<<<<<<< HEAD
+
 </nav>
 
         <span class="badge bg-primary mb-3">
@@ -106,6 +106,4 @@ $rol = $_SESSION["Rol"] ?? "";
 
     <?php endif; ?>
 
-=======
 </nav>
->>>>>>> 76865479fbb47e4093b050b98537df2011c31b4c

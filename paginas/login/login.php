@@ -23,7 +23,7 @@
 </nav>
 
     <div>
-    <form action="/web/validar_login.php" class="login-caja" method="POST">
+    <form action="/Proyecto---MateTech/validar_login.php" class="login-caja" method="POST">
 
    
 
@@ -66,9 +66,11 @@
 
 </form>
     </div> 
- <div> 
-    <?php include '../diseños/footer.php'; ?>
- </div>
+
+<footer>
+        &copy; 2026 MateTech. Todos los derechos reservados.
+        <img class="foot" src="../img/logo.png" alt="Logo">
+    </footer>
 
     </body>
     </html>
