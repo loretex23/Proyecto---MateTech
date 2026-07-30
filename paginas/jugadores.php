@@ -1,4 +1,8 @@
+<<<<<<< HEAD:jugadores.php
+<?php include 'auth.php'; ?>
+=======
 <?php require_once "login/auth.php";?>
+>>>>>>> 892e46dc9e5009c297530b2003b897005fb6b7e5:paginas/jugadores.php
 
 <!DOCTYPE html>
 <html lang="en">
