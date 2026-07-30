@@ -12,22 +12,16 @@
         <link href="../../estilos.css" rel="stylesheet">
         <title>Inicio de sesión</title>
     </head>
-    <body>
-   <nav class="navbar navbar-expand-lg" ID="navbar">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="../../img/LogoFlow.png" alt="Logo" class="rounded-pill nav-logo">
-            <img src="../../img/LeagueFlow.png" alt="LeagueFlow" class="rounded-pill web-logo"> 
-        </a>
-    </div>
-</nav>
+    <body class="login-body">
 
     <div>
+
     <form action="/Proyecto---MateTech/validar_login.php" class="login-caja" method="POST">
 
-   
+   <div>
+        <h2 class="session">Iniciar sesión</h2>
 
-    <div class="mb-3">
+    <div class="email">
         <label>Email</label>
 
         <input
@@ -37,7 +31,7 @@
             required>
     </div>
 
-    <div class="mb-3">
+    <div class="password">
         <label>Contraseña</label>
 
         <input

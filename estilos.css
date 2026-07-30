@@ -72,31 +72,66 @@ footer {
   height: 65px;
 }
 
+.login-body {
+  background-image: url('img/fondologin.png');
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.login-logo {
+}
+
 .login-caja {
   padding: 40px;
   background-color: #ffffff;
-  border-radius: 35px;
+  border-radius: 12px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   margin: 0 auto;
   width: 35%;
   height: 420px;
   margin-bottom: 100px;
   margin-top: 30px;
+  margin-left: 10%;
+}
+
+.session {
+  margin-left: 10px;
+  border-bottom: 2px solid #1a4731;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1a4731;
+  font-family: "Arial", monospace;
+}
+
+.email {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 22px;
+  border-radius: 5px;
+}
+
+.password {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border-radius: 5px;
 }
 
 .btn-submit {
-  background-color: #1c49ec;
+  background-color: #0d6929;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 10px;
   cursor: pointer;
   width: 100%;
-  margin-top: 45px;
+  margin-top: 20px;
 }
 
 .btn {
-  background-color: #1c49ec;
+  background-color: #0d8832;
 }
 
 .logout-caja {
@@ -111,16 +146,6 @@ footer {
   margin-top: 80px;
 }
 
-.btn-submit {
-  background-color: #183fca;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 10px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-}
-
 .btn{
   background-color: #1a4731;
   color: #ffffff;
@@ -132,7 +157,7 @@ footer {
 }
 
 .btn-submit:hover {
-  background-color: #1437b8;
+  background-color: #0b5521;
   color: #ffffff;
   transform: translateY(-2px);
 }
