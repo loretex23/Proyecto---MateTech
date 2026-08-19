@@ -1,6 +1,3 @@
-<?php include 'login/auth.php'; ?>
-<?php require_once "login/auth.php";?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,31 +6,37 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link href="../estilos.css" rel="stylesheet">
-    <title>MateTech - Posiciones</title>
+    <title>LeagueFlow - Ajustes</title>
 </head>
 <body class="fondo-body">
 
     <?php include 'diseños/navbar.php'; ?>
 <main>
-
   <div class="home-hero">
             <div>
-               <h1>Posiciones de la liga</h1>
-        <p>Este es el contenido principal de la página de posiciones.</p>
+              <h1>Noticias</h1>
+        <p>Este es el contenido principal de la página de noticias.</p>
+
                </div>
             <img src="../img/Login-foto0.png" alt="LeagueFlow" class="home-hero-logo">
         </div>
 
     
-   <div>
- </div>
 
-</body>
+    <div>
+
+
+
+    </div>
 </main>
-<footer>
+    <footer>
         &copy; 2026 MateTech. Todos los derechos reservados.
         <img class="foot" src="../img/logo.png" alt="Logo">
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+    
 </html>
