@@ -25,11 +25,6 @@ include "../../sql/basededatos.php";
             </div>
         </div>
 
-    <div class="login-container">
-    <div class="login-caja1">
-    <form action="/Proyecto---MateTech/validar_login.php" method="POST">
-
-   <div>
         <h2 class="session">Iniciar sesión</h2>
 
         <div class="welcome-hint">
@@ -67,19 +62,3 @@ include "../../sql/basededatos.php";
 
 </body>
 </html>
-</form>
-    </div> 
-</div>
-    <div class="login-logo">
-        <img src="../../img/login-logo.png" alt="Imagen de inicio de sesión">
-    </div>
-</div>
-
-<footer>
-        &copy; 2026 MateTech. Todos los derechos reservados.
-        <img class="foot" src="../../img/logo.png" alt="Logo">
-    </footer>
-
-    </body>
-    </html>
-    
