@@ -4,6 +4,7 @@ $bd = "matetech";
 $usuario = "root";
 $password = "";
 
+
 try {
 
     $pdo = new PDO(
