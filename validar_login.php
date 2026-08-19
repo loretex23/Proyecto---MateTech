@@ -28,11 +28,11 @@ if (!password_verify($password, $club["Contraseña_hash"])) {
     exit;
 }
 
-$_SESSION["ClubID"] = $club["ClubID"];
-$_SESSION["NombreClub"] = $club["NombreClub"];
+$_SESSION["ClubID"] = $club["id"];
+$_SESSION["NombreClub"] = $club["nombre"];
 $_SESSION["Usuario"] = $club["Usuario"];
 
-$_SESSION["Rol"] = $club["Rol"];
+$_SESSION["Rol"] = $club["rol"];
 
 header("Location: paginas/index.php");
 exit;
