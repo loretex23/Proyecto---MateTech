@@ -25,9 +25,11 @@
         </div>
     <div class="container mt-4">
         <h2 class="text-center mb-4 font-weight-bold">Lista de Jugadores</h2>
+       <?php if ($rol === "Admin") { ?> 
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" style= "max-width: 425px; background-color: #226846; border-color: #1a4731;" data-bs-target="#modalCrear">
             <i class="ti ti-plus" style="align-middle"></i> Agregar Jugador
         </button>
+          <?php } ?>
         <table class="table table-striped text-center align-middle">
             <thead>
                 <tr>
@@ -68,10 +70,9 @@
         </table>
 </div>  
 </main>
-
 <div class="modal fade" id="modalCrear" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content modal-login-caja" id="cont">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalCrearLabel">Agregar Jugador</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -100,12 +101,20 @@
                     </div>
                     <div class="mb-3">
                         <label for="foto_url" class="form-label">Foto</label>
-                        <input type="file" class="form-control foto form-control-sm " id="" name="" accept=".jpg, .jpeg, .png, .gif, .webp, .svg, .bmp, .tiff, .ico, .he">
+                        <input type="file" class="form-control foto form-control-sm " id="" name="" accept=".jpg, .jpeg, .png">
                     </div>
+                    <div>
+                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" type="submit"> Confirmar Registro</button>    
+                    </div>
+                    </form>
+ </div>
+</div>
+</div>
+</div>
 
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-center">
-        <div class="modal-content">
+        <div class="modal-content modal-login-caja">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalEditarLabel">Editar Jugador</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -135,9 +144,17 @@
                     </div>
                     <div class="mb-3">
                         <label for="" class="">Foto</label>
-                        <input type="" class="" id="" name="" accept=".jpg, .jpeg, .png, .gif, .webp, .svg, .bmp, .tiff, .ico, .he">
-                    </div>            
-
+                        <input type="file" class="form-control" id="" name="" accept=".jpg, .jpeg, .png">
+                    </div>             
+                    <div>
+                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" type="submit"> Confirmar Registro</button>    
+                    </div>
+            </form>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
 </body>
 <footer>
         &copy; 2026 MateTech. Todos los derechos reservados.

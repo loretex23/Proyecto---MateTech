@@ -357,6 +357,19 @@ main {
   animation: slideIn 0.5s ease;
 }
 
+.cont {
+  padding: 40px;
+  border-radius: 16px;
+  width: 400px;
+  height: auto;
+  flex-shrink: 0;
+  background: rgba(0,0,0,0.50);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #050505;
+}
+
 .brand-row {
   display: flex;
   align-items: center;
@@ -571,6 +584,121 @@ footer {
   border: 1px solid rgba(255, 255, 255, 0.18);
   color: #fff;
 }
+
+
+.modal-login-caja {
+  padding: 30px;
+  border-radius: 16px;
+
+  background: rgba(0, 0, 0, 0.50) !important;
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+
+  color: #fff;
+
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.35);
+
+  animation: slideIn 0.3s ease;
+}
+
+.modal-backdrop.show {
+  opacity: 0.65;
+}
+
+.modal-login-caja .modal-title {
+  color: #fff;
+  font-weight: 700;
+}
+
+.modal-login-caja .modal-header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-login-caja .modal-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.modal-login-caja .form-label {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 13px;
+  margin-bottom: 6px;
+  padding: 0;
+}
+
+.modal-login-caja .form-control {
+  background: rgba(255, 255, 255, 0.10) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  color: #fff !important;
+  border-radius: 8px;
+}
+
+.modal-login-caja .form-control:focus {
+  background: rgba(255, 255, 255, 0.14) !important;
+  border-color: rgba(255, 255, 255, 0.45) !important;
+  box-shadow: 0 0 0 0.2rem rgba(26, 71, 49, 0.35);
+  color: #fff !important;
+}
+
+.modal-login-caja .form-control::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.modal-login-caja .btn-close {
+  filter: invert(1);
+  opacity: 0.8;
+}
+
+.modal-login-caja .btn-close:hover {
+  opacity: 1;
+}
+
+.modal-login-caja .btn {
+  background: #1a4731;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.modal-login-caja .btn:hover {
+  background: #0b5521;
+  transform: translateY(-2px);
+}
+
+.modal-login-caja button[type="submit"] {
+  width: 100%;
+  margin-top: 10px;
+  background: #1a4731;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+
+.modal-login-caja button[type="submit"]:hover {
+  background: #0b5521;
+  transform: translateY(-2px);
+}
+
+.modal-login-caja input[type="file"] {
+  color: rgba(255, 255, 255, 0.8) !important;
+}
+
+.modal-login-caja input[type="file"]::file-selector-button {
+  background: #1a4731;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  margin-right: 10px;
+  border-radius: 6px;
+}
+
 
 @keyframes slideIn {
   from { opacity: 0; transform: translateX(-40px); }
