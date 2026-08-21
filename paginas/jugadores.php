@@ -7,8 +7,8 @@ $busqueda = isset($_GET['busqueda']) ? trim($_GET['busqueda']) : '';
 $filtro_categoria = isset($_GET['categoria_id']) ? $_GET['categoria_id'] : '';
 $filtro_club = isset($_GET['club_id']) ? $_GET['club_id'] : '';
 
-// Obtener el ID del club del usuario en sesión (asumiendo $_SESSION['club_id'])
-$club_id_usuario = isset($_SESSION['club_id']) ? $_SESSION['club_id'] : null;
+// Obtener el ID del club del usuario en sesión (asumiendo $_SESSION['ClubID'])
+$club_id_usuario = isset($_SESSION['ClubID']) ? $_SESSION['ClubID'] : null;
 ?>
 
 <!DOCTYPE html>
