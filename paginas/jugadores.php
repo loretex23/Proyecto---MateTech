@@ -56,7 +56,12 @@
             <td><?php echo $datos->apellido ?></td>
             <td><?php echo $datos->ci ?></td>
             <td><?php echo $datos->fecha_nacimiento ?></td>
-            <td><?php echo $datos->carnet_vencimiento ?></td>
+            <td><?php echo $datos->carnet_vencimiento ?>
+            <?php
+                if ($rol === 'Club') { ?>
+                <button type="button" class="btn btn-small btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditarFecha" data-id="<?php echo $datos->id; ?>">
+                    <i class="ti ti-edit"></i> </button> </td>
+            <?php } ?>
             <?php if ($rol === "Admin") { ?> 
             <td><button type="button" class="btn btn-small btn-warning" data-bs-toggle="modal" data-bs-target="#modalEditar" data-id="<?php echo $datos->id; ?>">
                     <i class="ti ti-edit"></i>
@@ -70,6 +75,30 @@
         </table>
 </div>  
 </main>
+
+<div class="modal fade" id="modalEditarFecha" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-center">
+        <div class="modal-content modal-login-caja">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEditarLabel">Editar Fecha de Vencimiento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="../sql/editar_fecha_vencimiento.php" method="POST">
+                    <input type="hidden" id="editar_id_fecha" name="id">
+                    <div class="mb-3">
+                        <label for="editar_carnet_vencimiento" class="form-label">Carnet de Vencimiento</label>
+                        <input type="date" class="form-control" id="editar_carnet_vencimiento_fecha" name="carnet_vencimiento" required>
+                    </div>             
+                    <div>
+                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" name="btneditarfecha" value="ok" type="submit"> Confirmar Registro</button>    
+                    </div>
+            </form>
+</div>
+            </div>
+        </div>
+    </div>
+
 <div class="modal fade" id="modalCrear" tabindex="-1" aria-labelledby="modalCrearLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content modal-login-caja" id="cont">
@@ -78,7 +107,12 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="../sql/registrar_jugador.php" method="POST" enctype="multipart/form-data">
+                <form method="POST" enctype="multipart/form-data">
+                    <?php
+                    include '../sql/basededatos.php'; 
+                    include '../sql/registrar_jugador.php';
+                    ?>
+
                     <div class="mb-3">
                         <label for="nombre" class="form-label">Nombre</label>
                         <input type="text" class="form-control" id="nombre" name="nombre" required>
@@ -101,10 +135,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="foto_url" class="form-label">Foto</label>
-                        <input type="file" class="form-control foto form-control-sm " id="" name="" accept=".jpg, .jpeg, .png">
+                        <input type="file" class="form-control foto form-control-sm " id="" name="foto_url" accept=".jpg, .jpeg, .png" required>
                     </div>
                     <div>
-                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" type="submit"> Confirmar Registro</button>    
+                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" name="btnregistrar" value="ok" > Confirmar Registro</button>    
                     </div>
                     </form>
  </div>
@@ -143,11 +177,11 @@
                         <input type="date" class="form-control" id="editar_carnet_vencimiento" name="carnet_vencimiento" required>
                     </div>
                     <div class="mb-3">
-                        <label for="" class="">Foto</label>
-                        <input type="file" class="form-control" id="" name="" accept=".jpg, .jpeg, .png">
+                        <label for="editar_foto" class="form-label">Foto</label>
+                        <input type="file" class="form-control" id="editar_foto" name="foto_url" accept=".jpg, .jpeg, .png">
                     </div>             
                     <div>
-                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" type="submit"> Confirmar Registro</button>    
+                    <button style="background-color: #226846; border-color: #1a4731;" class="btn btn-primary" value="ok" type="submit"> Confirmar Registro</button>    
                     </div>
             </form>
             </div>
