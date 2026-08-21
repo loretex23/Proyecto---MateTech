@@ -291,20 +291,20 @@
 }
 
 body {
-  font-family: "Arial", monospace;
-  margin: 0;
-  padding-top: 68px;
-  background-color: #fff4cc;
-  overflow-x: hidden;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+    font-family: "Arial", monospace;
+    margin: 0;
+    padding-top: 68px;
+    background-color: #fff4cc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 
 .fondo-body {
   background-image: url('img/fondobody.png');
-  overflow: hidden;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -327,7 +327,6 @@ main {
   background-attachment: fixed;
   min-height: 100vh;
   padding-top: 0 !important;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -449,14 +448,14 @@ main {
 }
 
 .form-control {
-  background: rgba(255,255,255,0.10) !important;
-  border: 1px solid rgba(255,255,255,0.22) !important;
-  color: #fff !important;
+  background: rgba(255,255,255,1) !important;
+  border: 1px solid rgba(121, 121, 121, 0.22) !important;
+  color: #000 !important;
   border-radius: 8px;
 }
 
 .form-control::placeholder {
-  color: rgba(255,255,255,0.35);
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .login-logo-lateral {
