@@ -48,7 +48,7 @@ if (!empty($_POST["btnregistrar"])) {
         $resultado = $sql->execute([$nombre, $apellido, $ci, $fecha_nacimiento, $carnet_vencimiento, $club_id, $categoria_id, $foto_ruta_db]);
 
         if ($resultado) {
-            header("Location: ../vistas/jugadores.php?mensaje=registrado");
+            header("Location: ../paginas/jugadores.php");
             exit();
         } else {
             echo "<div class='alert alert-danger'>Error al registrar el jugador.</div>";

@@ -18,6 +18,7 @@ $club_id_usuario = isset($_SESSION['ClubID']) ? $_SESSION['ClubID'] : null;
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="../img/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
     <link href="../estilos.css" rel="stylesheet" type="text/css">
     <title>MateTech - Jugadores</title>
