@@ -27,6 +27,9 @@ $pagina_actual = basename($_SERVER['PHP_SELF']);
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link <?php echo ($pagina_actual == 'partidos.php') ? 'active' : ''; ?>" href="../paginas/partidos.php">Partidos</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link <?php echo ($pagina_actual == 'posiciones.php') ? 'active' : ''; ?>" href="../paginas/posiciones.php">Posiciones</a>
                 </li>
             </ul>

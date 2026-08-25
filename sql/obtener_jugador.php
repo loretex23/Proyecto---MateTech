@@ -20,7 +20,7 @@ $stmt = $pdo->prepare("
         apellido,
         ci,
         fecha_nacimiento,
-        carnet_vencimiento,
+        DATE_FORMAT(carnet_vencimiento, '%Y-%m-%d') AS carnet_vencimiento,
         foto_url,
         club_id,
         categoria_id
