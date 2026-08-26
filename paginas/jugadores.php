@@ -336,7 +336,7 @@ function options_cat(array $categorias, string $selected_id = ''): string
                         </tr>
                         <tr>
                             <th>Vencimiento carnet</th>
-                            <td id="carnet_vencimiento"></td>
+                            <td id="carnet_fecha_vencimiento"></td>
                         </tr>
                     </table>
                 </div>
@@ -379,25 +379,23 @@ function options_cat(array $categorias, string $selected_id = ''): string
         });
 
 
-        document.getElementById('modalCarnet')?.addEventListener('show.bs.modal', function (e) {
-            const b = e.relatedTarget;
-            const fechaVencimiento = b.dataset.vencimiento || 'Sin fecha asignada';
+document.getElementById('modalCarnet')?.addEventListener('show.bs.modal', function (e) {
+    const b = e.relatedTarget;
 
-            document.getElementById('carnet_vencimiento').textContent = fechaVencimiento;
+    fetch('../sql/obtener_jugador.php?id=' + b.dataset.id)
+        .then(r => r.json())
+        .then(j => {
+            if (j.error) return alert(j.error);
 
-            fetch('../sql/obtener_jugador.php?id=' + b.dataset.id)
-                .then(r => r.json())
-                .then(j => {
-                    if (j.error) return alert(j.error);
-
-                    document.getElementById('carnet_foto').src = '../' + (j.foto_url || '');
-                    document.getElementById('carnet_nombre').textContent = j.nombre || '';
-                    document.getElementById('carnet_apellido').textContent = j.apellido || '';
-                    document.getElementById('carnet_ci').textContent = j.ci || '';
-                    document.getElementById('carnet_nacimiento').textContent = j.fecha_nacimiento || '';
-                })
-                .catch(() => alert('No se pudieron cargar los datos del jugador.'));
-        });
+            document.getElementById('carnet_foto').src = '../' + (j.foto_url || '');
+            document.getElementById('carnet_nombre').textContent = j.nombre || '';
+            document.getElementById('carnet_apellido').textContent = j.apellido || '';
+            document.getElementById('carnet_ci').textContent = j.ci || '';
+            document.getElementById('carnet_nacimiento').textContent = j.fecha_nacimiento || '';
+            document.getElementById('carnet_fecha_vencimiento').textContent = j.carnet_vencimiento || 'Sin fecha asignada';
+        })
+        .catch(() => alert('No se pudieron cargar los datos del jugador.'));
+});
     </script>
 
 </body>
