@@ -129,7 +129,7 @@ $badge_estado = [
                                     </small>
                                 <?php else: ?>
                                     <small class="text-muted d-block mt-2">Sin fecha definida</small>
-                                <?php endif; ?>
+                              <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; endif; ?>
