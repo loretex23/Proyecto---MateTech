@@ -820,4 +820,8 @@ footer {
     flex-direction: column;
     text-align: center;
   }
+  .dropdown-menu {
+    width: 100%;
+    max-width: 200px;
+  }
 }
