@@ -265,12 +265,8 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                             <input type="number" step="0.01" min="0" class="form-control" name="masa" placeholder="Ej: 72.5">
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label">Altura (cm) <small class="text-muted">opcional</small></label>
-                            <input type="number" step="0.1" min="0" class="form-control" name="altura" placeholder="Ej: 175.0">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Fuerza/Peso <small class="text-muted">opcional</small></label>
-                            <input type="number" step="0.01" min="0" class="form-control" name="fuerza_peso" placeholder="Ej: 1.5">
+                            <label class="form-label">Altura (m) <small class="text-muted">opcional</small></label>
+                            <input type="number" step="0.01" min="0" max='3.00' class="form-control" name="altura" placeholder="Ej: 1.75">
                         </div>
                     </div>
 
@@ -334,14 +330,9 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                                 id="editar_masa" name="masa" placeholder="Ej: 72.5">
                         </div>
                         <div class="col-md-4">
-                            <label class="form-label">Altura (cm)</label>
-                            <input type="number" step="0.1" min="0" class="form-control"
-                                id="editar_altura" name="altura" placeholder="Ej: 175.0">
-                        </div>
-                        <div class="col-md-4">
-                            <label class="form-label">Fuerza/Peso</label>
-                            <input type="number" step="0.01" min="0" class="form-control"
-                                id="editar_fuerza_peso" name="fuerza_peso" placeholder="Ej: 1.5">
+                            <label class="form-label">Altura (m)</label>
+                            <input type="number" step="0.01" min="0" max="3.00" class="form-control"
+                                id="editar_altura" name="altura" placeholder="Ej: 1.75">
                         </div>
                     </div>
 
@@ -378,6 +369,8 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                     <tr><th>Apellido</th><td id="carnet_apellido"></td></tr>
                     <tr><th>Cédula</th><td id="carnet_ci"></td></tr>
                     <tr><th>Fecha de nacimiento</th><td id="carnet_nacimiento"></td></tr>
+                    <tr><th>Club</th><td id="carnet_club"></td></tr>
+                    <tr><th>Categoría</th><td id="carnet_categoria"></td></tr>
                     <tr><th>Vencimiento carnet</th><td id="carnet_fecha_vencimiento"></td></tr>
                     <tr><th>Peso</th><td id="carnet_masa"></td></tr>
                     <tr><th>Altura</th><td id="carnet_altura"></td></tr>
@@ -398,7 +391,7 @@ document.getElementById('modalEditar')?.addEventListener('show.bs.modal', functi
         .then(r => r.json())
         .then(j => {
             if (j.error) return alert(j.error);
-            ['id','nombre','apellido','ci','fecha_nacimiento','carnet_vencimiento','masa','altura','fuerza_peso'].forEach(k => {
+            ['id','nombre','apellido','ci','fecha_nacimiento','carnet_vencimiento','masa','altura'].forEach(k => {
                 const el = document.getElementById('editar_' + k);
                 if (el) el.value = j[k] ?? '';
             });
@@ -432,10 +425,12 @@ document.getElementById('modalCarnet')?.addEventListener('show.bs.modal', functi
             document.getElementById('carnet_apellido').textContent         = j.apellido || '';
             document.getElementById('carnet_ci').textContent               = j.ci || '';
             document.getElementById('carnet_nacimiento').textContent       = j.fecha_nacimiento || '';
+            document.getElementById('carnet_club').textContent              = j.club_id || '';
+            document.getElementById('carnet_categoria').textContent         = j.categoria_nombre || '';
             document.getElementById('carnet_fecha_vencimiento').textContent = j.carnet_vencimiento || 'Sin fecha asignada';
-            document.getElementById('carnet_masa').textContent             = j.masa    ? j.masa + ' kg'   : '—';
-            document.getElementById('carnet_altura').textContent           = j.altura  ? j.altura + ' cm' : '—';
-            document.getElementById('carnet_fuerza_peso').textContent      = j.fuerza_peso ?? '—';
+            document.getElementById('carnet_masa').textContent             = j.masa    ? j.masa + 'kg'   : '—';
+            document.getElementById('carnet_altura').textContent           = j.altura  ? j.altura + 'm' : '—';
+            document.getElementById('carnet_fuerza_peso').textContent      = j.fuerza_peso + 'N ';
         })
         .catch(() => alert('No se pudieron cargar los datos del jugador.'));
 });
