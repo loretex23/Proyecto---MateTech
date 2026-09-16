@@ -7,7 +7,6 @@ $club_id_usuario = $_SESSION["ClubID"] ?? null;
 
 $comunicados = $pdo->query("SELECT * FROM comunicados ORDER BY fecha_publicacion DESC LIMIT 5")->fetchAll(PDO::FETCH_OBJ);
 
-// Próximos partidos — solo para Club
 $proximos = [];
 if ($rol === "Club" && $club_id_usuario) {
     $stmt = $pdo->prepare("

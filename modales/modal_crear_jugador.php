@@ -1,4 +1,3 @@
-<!-- Modal: Crear jugador (Admin) -->
 <div class="modal fade" id="modalCrear" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-login-caja">

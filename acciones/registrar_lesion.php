@@ -1,5 +1,4 @@
 <?php
-/* Se ejecuta al guardar el modal "Registrar lesión" (modal_evento.php). */
 
 $pdo->prepare(
     "INSERT INTO lesiones (partido_id, jugador_id, descripcion, minuto) VALUES (?, ?, ?, ?)"

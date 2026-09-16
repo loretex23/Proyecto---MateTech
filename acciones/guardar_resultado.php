@@ -1,7 +1,4 @@
 <?php
-/* Se ejecuta al guardar el modal "Resultado y goles" (modal_resultado.php).
-   1) Guarda el marcador final y marca el partido como jugado.
-   2) Borra los goles anteriores y carga de nuevo los del formulario. */
 
 $partido_id = (int) $_POST["partido_id"];
 

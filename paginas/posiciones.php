@@ -4,20 +4,14 @@ include '../sql/basededatos.php';
 
 $rol = $_SESSION["Rol"] ?? "";
 
-// 1. Obtener lista de categorías para el filtro
 $categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre ASC")->fetchAll(PDO::FETCH_OBJ);
 
-// 2. Determinar categoría seleccionada (por defecto toma la primera)
 $categoria_id = isset($_GET['categoria_id']) ? (int)$_GET['categoria_id'] : ($categorias[0]->id ?? 0);
 
 $posiciones = [];
 
 if ($categoria_id > 0) {
-    /*
-     * Explicación de la consulta SQL:
-     * Unimos la tabla 'club' con los partidos jugados en la categoría seleccionada en donde el club haya actuado como Local o Visitante.
-     * Evaluamos victorias (3 pts), empates (1 pt) y derrotas (0 pts) según los goles de cada equipo.
-     */
+
     $sql = "
         SELECT 
             c.id AS club_id,

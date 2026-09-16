@@ -21,9 +21,8 @@ if (!$jugador) {
     exit();
 }
 
-// Fuerza peso = masa * g (g = 10 N/kg, redondeado)
 $jugador['fuerza_peso'] = $jugador['masa'] !== null
-    ? round((float)$jugador['masa'] * 10, 2)
+    ? round((float)$jugador['masa'] * 9.8, 2)
     : null;
 
 echo json_encode($jugador);

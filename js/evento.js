@@ -1,7 +1,3 @@
-/* evento.js
-   Todo lo relacionado al modal compartido de "Tarjeta / Lesión".
-   Necesita que comun.js esté cargado antes. */
-
 const CONFIGURACION_EVENTO = {
     tarjeta: {
         titulo: 'Registrar tarjeta', boton: 'Registrar tarjeta', clase: 'btn-danger', nombreInput: 'btn_tarjeta',
@@ -14,7 +10,6 @@ const CONFIGURACION_EVENTO = {
     },
 };
 
-// Al elegir un club en el modal, se cargan sus jugadores por AJAX
 $('ev_club')?.addEventListener('change', function () {
     const selectJugador = $('ev_jugador');
     if (!this.value) {
@@ -34,7 +29,6 @@ $('ev_club')?.addEventListener('change', function () {
         .catch(() => selectJugador.innerHTML = '<option value="">Error</option>');
 });
 
-// Al abrir el modal, se configura según sea "tarjeta" o "lesión"
 $('modalEvento')?.addEventListener('show.bs.modal', e => {
     const boton = e.relatedTarget;
     const tipoEvento = boton.dataset.evento;

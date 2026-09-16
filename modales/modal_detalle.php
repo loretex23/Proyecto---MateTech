@@ -1,4 +1,3 @@
-<!-- Modal de detalle: el contenido lo llena js/linea_de_tiempo.js por AJAX -->
 <div class="modal fade" id="modalDetalle" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content">
         <div class="modal-header border-0 pb-0">

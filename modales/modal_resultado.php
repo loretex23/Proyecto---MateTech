@@ -1,5 +1,3 @@
-<!-- Modal de resultado y goles. Se llena con JS (js/resultado.js) al abrirse.
-     Envía a acciones/guardar_resultado.php -->
 <div class="modal fade" id="modalResultado" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-xl"><div class="modal-content"><form method="POST">
         <input type="hidden" name="partido_id" id="res_id">

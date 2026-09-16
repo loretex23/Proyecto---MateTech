@@ -1,8 +1,3 @@
-/* linea_de_tiempo.js
-   Arma el timeline (goles + tarjetas + lesiones, ordenados por minuto)
-   que se ve en el modal "Detalle del partido". Necesita que comun.js
-   esté cargado antes. */
-
 const ICONO_GOL = { normal: '⚽', penal: '🥅', autogol: '🔴' };
 const CLASE_GOL = { normal: 'gol', penal: 'penal', autogol: 'autogol' };
 
@@ -32,7 +27,7 @@ $('modalDetalle')?.addEventListener('show.bs.modal', e => {
                 <div class="match-team">${esc(partido.visitante)}</div>
             </div>`;
 
-            // Se unifican goles, tarjetas y lesiones en una sola línea de tiempo, ordenada por minuto
+            
             const eventos = [
                 ...datos.goles.map(g => {
                     const velocidad = Math.floor(Math.random() * (100 - 75 + 1)) + 40;

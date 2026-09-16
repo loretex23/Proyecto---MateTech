@@ -1,5 +1,3 @@
-<!-- Modal para editar estado/fecha. Se llena con JS (js/comun.js) al abrirse.
-     Envía a acciones/cambiar_estado.php -->
 <div class="modal fade" id="modalEstado" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered"><div class="modal-content"><form method="POST">
         <input type="hidden" name="partido_id" id="est_id">

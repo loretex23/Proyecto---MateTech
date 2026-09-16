@@ -1,5 +1,4 @@
 <?php
-/* Se ejecuta al guardar el modal "Editar partido" (modal_estado.php). */
 
 $pdo->prepare(
     "UPDATE partidos SET estado = ?, fecha_partido = ? WHERE id = ?"

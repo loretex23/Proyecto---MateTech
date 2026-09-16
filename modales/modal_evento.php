@@ -1,5 +1,3 @@
-<!-- Modal compartido para tarjeta y lesión. Se configura con JS (js/evento.js) al abrirse.
-     Envía a acciones/registrar_tarjeta.php o acciones/registrar_lesion.php según el botón. -->
 <div class="modal fade" id="modalEvento" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg"><div class="modal-content"><form method="POST">
         <input type="hidden" name="partido_id" id="ev_pid">

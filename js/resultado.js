@@ -1,8 +1,3 @@
-/* resultado.js
-   Todo lo relacionado al modal "Resultado y goles": arma las filas de gol,
-   deja agregar/quitar goles y carga los goles ya guardados si el partido
-   ya tenía resultado. Necesita que comun.js esté cargado antes. */
-
 let jugadoresLocal = [];
 let jugadoresVisitante = [];
 
@@ -11,7 +6,7 @@ function opcionesDeJugadores(lista) {
     return '<option value="">Sin asignar</option>' + opciones.join('');
 }
 
-// Fila de "gol" dentro del modal de resultado
+
 function filaDeGol(opcionesJugadores) {
     return `<div class="gol-row mb-3 p-2" style="background:#f8fafc;border-radius:8px;border:1px solid #e5e7eb">
         <div class="d-flex justify-content-between align-items-center mb-1">
@@ -30,14 +25,14 @@ function filaDeGol(opcionesJugadores) {
     </div>`;
 }
 
-// Hace que el botón "X" de cada fila de gol la borre
+
 function activarBotonesBorrar(contenedor) {
     contenedor.querySelectorAll('.btn-remove').forEach(boton => {
         boton.onclick = () => boton.closest('.gol-row').remove();
     });
 }
 
-// Redibuja "cantidad" filas de gol vacías dentro de un contenedor
+
 function redibujarFilas(contenedor, cantidad, opcionesJugadores) {
     contenedor.innerHTML = '';
     for (let i = 0; i < cantidad; i++) {
@@ -46,7 +41,7 @@ function redibujarFilas(contenedor, cantidad, opcionesJugadores) {
     activarBotonesBorrar(contenedor);
 }
 
-// Agrega una fila de gol suelta y actualiza el contador/badge
+
 function agregarGol(idContenedor, idBadge, idInputCantidad, opcionesJugadores) {
     $(idContenedor).insertAdjacentHTML('beforeend', filaDeGol(opcionesJugadores));
     activarBotonesBorrar($(idContenedor));
@@ -54,7 +49,7 @@ function agregarGol(idContenedor, idBadge, idInputCantidad, opcionesJugadores) {
     $(idBadge).textContent = $(idInputCantidad).value;
 }
 
-// Cuando cambia el número de goles del local/visitante, se ajustan las filas
+
 $('res_gl')?.addEventListener('input', function () {
     const cantidad = Math.max(0, parseInt(this.value) || 0);
     $('bdg_l').textContent = cantidad;
@@ -68,8 +63,7 @@ $('res_gv')?.addEventListener('input', function () {
 $('add_l')?.addEventListener('click', () => agregarGol('wrap_l', 'bdg_l', 'res_gl', opcionesDeJugadores(jugadoresLocal)));
 $('add_v')?.addEventListener('click', () => agregarGol('wrap_v', 'bdg_v', 'res_gv', opcionesDeJugadores(jugadoresVisitante)));
 
-/* Al abrir el modal: trae los jugadores de ambos clubes y, si ya había
-   resultado cargado, trae también los goles guardados para poder editarlos. */
+
 $('modalResultado')?.addEventListener('show.bs.modal', async e => {
     const boton = e.relatedTarget;
     $('res_id').value = boton.dataset.id;
@@ -111,7 +105,7 @@ $('modalResultado')?.addEventListener('show.bs.modal', async e => {
             llenarFilas($('wrap_l'), golesDelLocal, jugadoresLocal, golesLocal);
             llenarFilas($('wrap_v'), golesDelVisitante, jugadoresVisitante, golesVisit);
         } catch (_) {
-            // Si falla la carga del detalle, al menos se muestran filas vacías
+
             redibujarFilas($('wrap_l'), golesLocal, opcionesDeJugadores(jugadoresLocal));
             redibujarFilas($('wrap_v'), golesVisit, opcionesDeJugadores(jugadoresVisitante));
         }
