@@ -23,11 +23,11 @@ function redirigir_a_partidos() {
    guarda en la base y se redirige — por eso no hace falta "else".
    --------------------------------------------------------------------- */
 if ($rol === "Admin") {
-    if (isset($_POST["btn_crear"]))     include "acciones/crear_partido.php";
-    if (isset($_POST["btn_estado"]))    include "acciones/cambiar_estado.php";
-    if (isset($_POST["btn_resultado"])) include "acciones/guardar_resultado.php";
-    if (isset($_POST["btn_tarjeta"]))   include "acciones/registrar_tarjeta.php";
-    if (isset($_POST["btn_lesion"]))    include "acciones/registrar_lesion.php";
+    if (isset($_POST["btn_crear"]))     include "../acciones/crear_partido.php";
+    if (isset($_POST["btn_estado"]))    include "../acciones/cambiar_estado.php";
+    if (isset($_POST["btn_resultado"])) include "../acciones/guardar_resultado.php";
+    if (isset($_POST["btn_tarjetas"]))  include "../acciones/guardar_tarjetas.php";
+    if (isset($_POST["btn_lesiones"]))  include "../acciones/guardar_lesiones.php";
 }
 
 /* ---------------------------------------------------------------------
@@ -133,39 +133,24 @@ $badge = [
                             <i class="ti ti-info-circle"></i> Ver más
                         </button>
                     </td>
-                    <?php if ($rol === "Admin"): ?>
-                    <td class="d-flex gap-1 justify-content-center">
-                        <button class="btn btn-sm btn-warning" data-bs-toggle="modal" data-bs-target="#modalEstado"
-                            data-id="<?= $p->id ?>" data-estado="<?= $p->estado ?>"
-                            data-fecha="<?= htmlspecialchars($p->fecha_partido ?? "", ENT_QUOTES) ?>">
-                            <i class="ti ti-edit"></i>
-                        </button>
-                        <button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#modalResultado"
-                            data-id="<?= $p->id ?>" data-local-id="<?= $p->club_local_id ?>"
-                            data-visitante-id="<?= $p->club_visitante_id ?>" data-categoria-id="<?= $p->categoria_id ?>"
-                            data-local="<?= htmlspecialchars($p->local, ENT_QUOTES) ?>"
-                            data-visitante="<?= htmlspecialchars($p->visitante, ENT_QUOTES) ?>"
-                            data-goles-local="<?= $p->goles_local ?>" data-goles-visitante="<?= $p->goles_visitante ?>">
-                            <i class="ti ti-ball-football"></i>
-                        </button>
-                        <button class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#modalEvento"
-                            data-evento="tarjeta" data-id="<?= $p->id ?>"
-                            data-local-id="<?= $p->club_local_id ?>" data-visitante-id="<?= $p->club_visitante_id ?>"
-                            data-categoria-id="<?= $p->categoria_id ?>"
-                            data-local="<?= htmlspecialchars($p->local, ENT_QUOTES) ?>"
-                            data-visitante="<?= htmlspecialchars($p->visitante, ENT_QUOTES) ?>">
-                            <i class="ti ti-cards"></i>
-                        </button>
-                        <button class="btn btn-sm btn-secondary" data-bs-toggle="modal" data-bs-target="#modalEvento"
-                            data-evento="lesion" data-id="<?= $p->id ?>"
-                            data-local-id="<?= $p->club_local_id ?>" data-visitante-id="<?= $p->club_visitante_id ?>"
-                            data-categoria-id="<?= $p->categoria_id ?>"
-                            data-local="<?= htmlspecialchars($p->local, ENT_QUOTES) ?>"
-                            data-visitante="<?= htmlspecialchars($p->visitante, ENT_QUOTES) ?>">
-                            <i class="ti ti-first-aid-kit"></i>
-                        </button>
-                    </td>
-                    <?php endif; ?>
+                  <?php if ($rol === "Admin"): ?>
+<td>
+    <button id="gestionar" class="btn btn-sm btn-warning"
+        data-bs-toggle="modal" data-bs-target="#modalGestionar"
+        data-id="<?= $p->id ?>"
+        data-estado="<?= $p->estado ?>"
+        data-fecha="<?= htmlspecialchars($p->fecha_partido ?? '', ENT_QUOTES) ?>"
+        data-local-id="<?= $p->club_local_id ?>"
+        data-visitante-id="<?= $p->club_visitante_id ?>"
+        data-categoria-id="<?= $p->categoria_id ?>"
+        data-local="<?= htmlspecialchars($p->local, ENT_QUOTES) ?>"
+        data-visitante="<?= htmlspecialchars($p->visitante, ENT_QUOTES) ?>"
+        data-goles-local="<?= $p->goles_local ?>"
+        data-goles-visitante="<?= $p->goles_visitante ?>">
+        <i class="ti ti-settings"></i> Gestionar
+    </button>
+</td>
+<?php endif; ?>
                 </tr>
             <?php endforeach; endif; ?>
             </tbody>
@@ -182,9 +167,7 @@ include "../modales/modal_detalle.php";
 
 if ($rol === "Admin") {
     include "../modales/modal_crear.php";
-    include "../modales/modal_estado.php";
-    include "../modales/modal_resultado.php";
-    include "../modales/modal_evento.php";
+    include "../modales/modal_gestionar.php";
 }
 ?>
 
@@ -193,7 +176,8 @@ if ($rol === "Admin") {
 <script src="../js/linea_de_tiempo.js"></script>
 <?php if ($rol === "Admin"): ?>
 <script src="../js/resultado.js"></script>
-<script src="../js/evento.js"></script>
+<script src="../js/tarjetas.js"></script>
+<script src="../js/lesiones.js"></script>
 <?php endif; ?>
 </body>
 </html>

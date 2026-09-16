@@ -29,17 +29,17 @@ $goles = $pdo->prepare("
 $goles->execute([$id]);
 
 $sanciones = $pdo->prepare("
-    SELECT s.tipo_tarjeta, s.minuto, j.nombre, j.apellido, c.nombre AS club
+    SELECT s.jugador_id, s.tipo_tarjeta, s.minuto, j.nombre, j.apellido, j.club_id, c.nombre AS club
     FROM sanciones s
     JOIN jugadores j ON j.id = s.jugador_id
     JOIN club c ON c.id = j.club_id
     WHERE s.partido_id = ?
-    ORDER BY s.minuto ASC
+    ORDER BY s.minuto ASC, s.tipo_tarjeta ASC
 ");
 $sanciones->execute([$id]);
 
 $lesiones = $pdo->prepare("
-    SELECT l.descripcion, l.minuto, j.nombre, j.apellido, c.nombre AS club
+    SELECT l.jugador_id, l.descripcion, l.minuto, j.nombre, j.apellido, j.club_id, c.nombre AS club
     FROM lesiones l
     JOIN jugadores j ON j.id = l.jugador_id
     JOIN club c ON c.id = j.club_id

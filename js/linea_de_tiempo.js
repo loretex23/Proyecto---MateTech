@@ -65,7 +65,18 @@ $('modalDetalle')?.addEventListener('show.bs.modal', e => {
                     clase: 'lesion',
                     detalle: l.descripcion || 'lesión',
                 })),
-            ].sort((a, b) => (a.minuto === null) - (b.minuto === null) || ((a.minuto ?? Infinity) - (b.minuto ?? Infinity)));
+            ].sort((a, b) => {
+                const nullSort = (a.minuto === null) - (b.minuto === null);
+                if (nullSort !== 0) return nullSort;
+                
+                const diffMin = (a.minuto ?? Infinity) - (b.minuto ?? Infinity);
+                if (diffMin !== 0) return diffMin;
+                
+                const orden = { 'amarilla': 1, 'roja': 2, 'lesion': 3, 'gol': 4, 'penal': 4, 'autogol': 4 };
+                const ordA = orden[a.clase] || 99;
+                const ordB = orden[b.clase] || 99;
+                return ordA - ordB;
+            });
 
             if (!eventos.length) {
                 html += '<p class="no-events" style="margin-top:10px">No hay eventos registrados.</p>';

@@ -119,8 +119,8 @@ footer{background:rgba(26,71,49,0.85);backdrop-filter:blur(18px);-webkit-backdro
 .tl-icon.amarilla{background:#fef9c3}
 .tl-icon.lesion{background:#fce7f3}
 .tl-info{min-width:0}
-.tl-info .player{font-size:.78rem;font-weight:600;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.tl-info .detail{font-size:.68rem;color:#6b7280}
+.tl-info .player{font-size:.95rem;font-weight:600;color:#111;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tl-info .detail{font-size:.82rem;color:#6b7280}
 .tl-min{width:32px;height:32px;background:#f3f4f6;border:2px solid #e5e7eb;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:#374151;flex-shrink:0;z-index:1;position:absolute;left:50%;transform:translateX(-50%)}
 .gol-row{display:flex;gap:6px;align-items:center;margin-bottom:5px}
 .gol-row select{flex:2}
@@ -130,7 +130,12 @@ footer{background:rgba(26,71,49,0.85);backdrop-filter:blur(18px);-webkit-backdro
 .no-events{text-align:center;color:#9ca3af;font-size:.8rem;padding:8px 0}
 .modal-login-caja button[type="submit"]:hover{background:#0b5521;transform:translateY(-2px)}
 .modal-login-caja input[type="file"]{color:rgba(255,255,255,0.8)!important}
+.modal-gestionar-caja input[type="file"]{color:rgba(255,255,255,0.8)!important}
+.modal-gestionar{padding:30px;border-radius:16px;background:rgba(0,0,0,0.50)!important;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.15)!important;color:#fff;box-shadow:0 15px 45px rgba(0,0,0,0.35);animation:slideIn 0.3s ease}
 .modal-login-caja input[type="file"]::file-selector-button{background:#1a4731;color:#fff;border:none;padding:8px 12px;margin-right:10px;border-radius:6px}
+.modal .nav-tabs .nav-link {color: #1a4731 !important;background-color: #f8f9fa !important;border: 1px solid #dee2e6 !important;}
+.modal .nav-tabs .nav-link.active {color: #ffffff !important;background-color: #1a4731 !important;border-color: #1a4731 !important;}
+.modal .nav-tabs .nav-link:hover {color: #0b5521 !important;}
 @keyframes slideIn{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
 @keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
 @media (max-width:768px){.login-wrapper{flex-direction:column;align-items:center}.login-caja{margin-left:0;width:90%}.login-logo-lateral{width:60%;margin:0 auto}.home-hero{flex-direction:column;text-align:center}.dropdown-menu{width:100%;max-width:200px}}
