@@ -1,10 +1,4 @@
 <?php
-/* =====================================================================
-   PARTIDOS.PHP — página principal
-   Solo se encarga de: verificar sesión, disparar la acción POST que
-   corresponda, buscar el listado de partidos y armar la página con los
-   pedazos de acciones/, modales/ y js/.
-   ===================================================================== */
 
 require_once "login/auth.php";
 include "../sql/basededatos.php";
@@ -12,16 +6,10 @@ include "../sql/basededatos.php";
 $rol = $_SESSION["Rol"] ?? "";
 $club_id_usuario = $_SESSION["ClubID"] ?? null;
 
-// La usan los archivos de acciones/ para volver a esta misma página
 function redirigir_a_partidos() {
     header("Location: partidos.php");
     exit();
 }
-
-/* ---------------------------------------------------------------------
-   Cada botón del Admin dispara UN archivo de acciones/. Ahí adentro se
-   guarda en la base y se redirige — por eso no hace falta "else".
-   --------------------------------------------------------------------- */
 if ($rol === "Admin") {
     if (isset($_POST["btn_crear"]))     include "../acciones/crear_partido.php";
     if (isset($_POST["btn_estado"]))    include "../acciones/cambiar_estado.php";
@@ -30,9 +18,6 @@ if ($rol === "Admin") {
     if (isset($_POST["btn_lesiones"]))  include "../acciones/guardar_lesiones.php";
 }
 
-/* ---------------------------------------------------------------------
-   Listado de partidos a mostrar. Si es "Club", solo los propios.
-   --------------------------------------------------------------------- */
 $filtro_club = $rol === "Club" ? "WHERE p.club_local_id = ? OR p.club_visitante_id = ?" : "";
 $parametros  = $rol === "Club" ? [$club_id_usuario, $club_id_usuario] : [];
 
@@ -48,13 +33,11 @@ $consulta = $pdo->prepare("
 $consulta->execute($parametros);
 $partidos = $consulta->fetchAll(PDO::FETCH_OBJ);
 
-// Datos extra que solo necesita el Admin para armar los <select> de los modales
 if ($rol === "Admin") {
     $clubes     = $pdo->query("SELECT id, nombre FROM club WHERE rol='Club' ORDER BY nombre")->fetchAll(PDO::FETCH_OBJ);
     $categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre")->fetchAll(PDO::FETCH_OBJ);
 }
 
-// Textos y colores de cada estado posible de un partido
 $estados = [
     "sin_fecha"  => "Sin fecha",
     "programado" => "Programado",
