@@ -16,7 +16,7 @@
                     <tr><th>Club</th><td id="carnet_club"></td></tr>
                     <tr><th>Categoría</th><td id="carnet_categoria"></td></tr>
                     <tr><th>Vencimiento carnet</th><td id="carnet_fecha_vencimiento"></td></tr>
-                    <tr><th>Peso</th><td id="carnet_masa"></td></tr>
+                    <tr><th>Masa</th><td id="carnet_masa"></td></tr>
                     <tr><th>Altura</th><td id="carnet_altura"></td></tr>
                     <tr><th>Fuerza/Peso</th><td id="carnet_fuerza_peso"></td></tr>
                 </table>
