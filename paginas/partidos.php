@@ -10,6 +10,7 @@ function redirigir_a_partidos() {
     header("Location: partidos.php");
     exit();
 }
+
 if ($rol === "Admin") {
     if (isset($_POST["btn_crear"]))     include "../acciones/crear_partido.php";
     if (isset($_POST["btn_estado"]))    include "../acciones/cambiar_estado.php";
@@ -82,18 +83,25 @@ $badge = [
 
     <div class="table-responsive">
         <table class="table table-striped text-center align-middle">
-            <thead>
+            <thead class="table-dark">
                 <tr>
-                    <th>Categoría</th><th>Local</th><th>Resultado</th><th>Visitante</th>
-                    <th>Fecha</th><th>Estado</th><th>Detalle</th>
+                    <th>Competición</th>
+                    <th>Categoría</th>
+                    <th>Local</th>
+                    <th>Resultado</th>
+                    <th>Visitante</th>
+                    <th>Fecha</th>
+                    <th>Estado</th>
+                    <th>Detalle</th>
                     <?php if ($rol === "Admin"): ?><th>Acciones</th><?php endif; ?>
                 </tr>
             </thead>
             <tbody>
             <?php if (empty($partidos)): ?>
-                <tr><td colspan="<?= $rol === "Admin" ? 8 : 7 ?>" class="text-muted py-4">No hay partidos registrados.</td></tr>
+                <tr><td colspan="<?= $rol === "Admin" ? 9 : 8 ?>" class="text-muted py-4">No hay partidos registrados.</td></tr>
             <?php else: foreach ($partidos as $p): ?>
                 <tr>
+                    <td><span class="badge bg-warning text-dark"><?= htmlspecialchars($p->competencia ?? 'Liga') ?></span></td>
                     <td><span class="badge bg-secondary"><?= htmlspecialchars($p->categoria) ?></span></td>
                     <td><?= htmlspecialchars($p->local) ?></td>
                     <td>
@@ -116,24 +124,24 @@ $badge = [
                             <i class="ti ti-info-circle"></i> Ver más
                         </button>
                     </td>
-                  <?php if ($rol === "Admin"): ?>
-<td>
-    <button id="gestionar" class="btn btn-sm btn-warning"
-        data-bs-toggle="modal" data-bs-target="#modalGestionar"
-        data-id="<?= $p->id ?>"
-        data-estado="<?= $p->estado ?>"
-        data-fecha="<?= htmlspecialchars($p->fecha_partido ?? '', ENT_QUOTES) ?>"
-        data-local-id="<?= $p->club_local_id ?>"
-        data-visitante-id="<?= $p->club_visitante_id ?>"
-        data-categoria-id="<?= $p->categoria_id ?>"
-        data-local="<?= htmlspecialchars($p->local, ENT_QUOTES) ?>"
-        data-visitante="<?= htmlspecialchars($p->visitante, ENT_QUOTES) ?>"
-        data-goles-local="<?= $p->goles_local ?>"
-        data-goles-visitante="<?= $p->goles_visitante ?>">
-        <i class="ti ti-settings"></i> Gestionar
-    </button>
-</td>
-<?php endif; ?>
+                    <?php if ($rol === "Admin"): ?>
+                    <td>
+                        <button id="gestionar" class="btn btn-sm btn-warning"
+                            data-bs-toggle="modal" data-bs-target="#modalGestionar"
+                            data-id="<?= $p->id ?>"
+                            data-estado="<?= $p->estado ?>"
+                            data-fecha="<?= htmlspecialchars($p->fecha_partido ?? '', ENT_QUOTES) ?>"
+                            data-local-id="<?= $p->club_local_id ?>"
+                            data-visitante-id="<?= $p->club_visitante_id ?>"
+                            data-categoria-id="<?= $p->categoria_id ?>"
+                            data-local="<?= htmlspecialchars($p->local, ENT_QUOTES) ?>"
+                            data-visitante="<?= htmlspecialchars($p->visitante, ENT_QUOTES) ?>"
+                            data-goles-local="<?= $p->goles_local ?>"
+                            data-goles-visitante="<?= $p->goles_visitante ?>">
+                            <i class="ti ti-settings"></i> Gestionar
+                        </button>
+                    </td>
+                    <?php endif; ?>
                 </tr>
             <?php endforeach; endif; ?>
             </tbody>

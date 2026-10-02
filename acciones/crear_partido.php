@@ -1,11 +1,12 @@
 <?php
-/* Se ejecuta cuando se envía el formulario "Nuevo partido" (modal_crear.php).
-   Usa $pdo, que ya viene cargado desde partidos.php. */
+
+$competencia = $_POST["competencia"] ?? "Liga";
 
 $pdo->prepare(
-    "INSERT INTO partidos (categoria_id, club_local_id, club_visitante_id, fecha_partido, estado)
-     VALUES (?, ?, ?, ?, ?)"
+    "INSERT INTO partidos (competencia, categoria_id, club_local_id, club_visitante_id, fecha_partido, estado)
+     VALUES (?, ?, ?, ?, ?, ?)"
 )->execute([
+    $competencia,
     $_POST["categoria_id"],
     $_POST["club_local_id"],
     $_POST["club_visitante_id"],

@@ -7,16 +7,20 @@ $rol = $_SESSION["Rol"] ?? "";
 // 1. Obtener lista de categorías para el filtro
 $categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre ASC")->fetchAll(PDO::FETCH_OBJ);
 
-// 2. Determinar categoría seleccionada (por defecto toma la primera)
+// 2. Determinar categoría y competición seleccionadas
 $categoria_id = isset($_GET['categoria_id']) ? (int)$_GET['categoria_id'] : ($categorias[0]->id ?? 0);
+
+$competencias_permitidas = ['Liga', 'Copa de Oro', 'Copa de Plata'];
+$competencia = isset($_GET['competencia']) && in_array($_GET['competencia'], $competencias_permitidas) 
+    ? $_GET['competencia'] 
+    : 'Liga';
 
 $posiciones = [];
 
 if ($categoria_id > 0) {
     /*
-     * Explicación de la consulta SQL:
-     * Unimos la tabla 'club' con los partidos jugados en la categoría seleccionada en donde el club haya actuado como Local o Visitante.
-     * Evaluamos victorias (3 pts), empates (1 pt) y derrotas (0 pts) según los goles de cada equipo.
+     * Consulta SQL:
+     * Unimos la tabla 'club' con los partidos jugados filtrados por categoría, competición y estado 'jugado'.
      */
     $sql = "
         SELECT 
@@ -58,6 +62,7 @@ if ($categoria_id > 0) {
         FROM club c
         LEFT JOIN partidos p ON (c.id = p.club_local_id OR c.id = p.club_visitante_id)
             AND p.categoria_id = :categoria_id 
+            AND p.competencia = :competencia
             AND p.estado = 'jugado'
         WHERE c.rol = 'Club'
         GROUP BY c.id, c.nombre
@@ -65,7 +70,10 @@ if ($categoria_id > 0) {
     ";
 
     $stmt = $pdo->prepare($sql);
-    $stmt->execute([':categoria_id' => $categoria_id]);
+    $stmt->execute([
+        ':categoria_id' => $categoria_id,
+        ':competencia'  => $competencia
+    ]);
     $posiciones = $stmt->fetchAll(PDO::FETCH_OBJ);
 }
 ?>
@@ -94,18 +102,35 @@ if ($categoria_id > 0) {
     </div>
 
     <div class="container mt-4">
-        <!-- Selector de Categoría -->
+        <!-- Filtros de Competición y Categoría -->
         <div class="row mb-4 justify-content-center">
-            <div class="col-md-5">
-                <form method="GET" action="posiciones.php" class="d-flex align-items-center gap-2">
-                    <label for="categoria_id" class="form-label mb-0 fw-bold text-white text-nowrap">Categoría:</label>
-                    <select name="categoria_id" id="categoria_id" class="form-select" onchange="this.form.submit()">
-                        <?php foreach ($categorias as $cat): ?>
-                            <option value="<?= $cat->id ?>" <?= $cat->id == $categoria_id ? 'selected' : '' ?>>
-                                <?= htmlspecialchars($cat->nombre) ?>
-                            </option>
-                        <?php endforeach; ?>
-                    </select>
+            <div class="col-md-8">
+                <form method="GET" action="posiciones.php" class="row g-3 align-items-center justify-content-center">
+                    
+                    <!-- Selector Competición -->
+                    <div class="col-auto d-flex align-items-center gap-2">
+                        <label for="competencia" class="form-label mb-0 fw-bold text-white text-nowrap">Competición:</label>
+                        <select name="competencia" id="competencia" class="form-select" onchange="this.form.submit()">
+                            <?php foreach ($competencias_permitidas as $comp): ?>
+                                <option value="<?= $comp ?>" <?= $comp == $competencia ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($comp) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <!-- Selector Categoría -->
+                    <div class="col-auto d-flex align-items-center gap-2">
+                        <label for="categoria_id" class="form-label mb-0 fw-bold text-white text-nowrap">Categoría:</label>
+                        <select name="categoria_id" id="categoria_id" class="form-select" onchange="this.form.submit()">
+                            <?php foreach ($categorias as $cat): ?>
+                                <option value="<?= $cat->id ?>" <?= $cat->id == $categoria_id ? 'selected' : '' ?>>
+                                    <?= htmlspecialchars($cat->nombre) ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -132,7 +157,7 @@ if ($categoria_id > 0) {
                         <tbody>
                             <?php if (empty($posiciones)): ?>
                                 <tr>
-                                    <td colspan="10" class="text-muted py-4">No hay datos registrados para esta categoría.</td>
+                                    <td colspan="10" class="text-muted py-4">No hay datos registrados para esta competición y categoría.</td>
                                 </tr>
                             <?php else: ?>
                                 <?php $pos = 1; foreach ($posiciones as $p): ?>
@@ -182,6 +207,6 @@ if ($categoria_id > 0) {
     <img class="foot" src="../img/logo.png" alt="Logo">
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"></script>
 </body>
 </html>
