@@ -6,6 +6,10 @@ include "../sql/basededatos.php";
 $rol = $_SESSION["Rol"] ?? "";
 $club_id_usuario = $_SESSION["ClubID"] ?? null;
 
+// Capturar filtros de competición y categoría
+$filtro_competencia = $_GET['competencia'] ?? '';
+$filtro_categoria   = $_GET['categoria_id'] ?? '';
+
 function redirigir_a_partidos() {
     header("Location: partidos.php");
     exit();
@@ -19,25 +23,56 @@ if ($rol === "Admin") {
     if (isset($_POST["btn_lesiones"]))  include "../acciones/guardar_lesiones.php";
 }
 
-$filtro_club = $rol === "Club" ? "WHERE p.club_local_id = ? OR p.club_visitante_id = ?" : "";
-$parametros  = $rol === "Club" ? [$club_id_usuario, $club_id_usuario] : [];
+// Construcción dinámica de condiciones WHERE
+$where = [];
+$parametros = [];
 
-$consulta = $pdo->prepare("
+// Restricción por rol de club
+if ($rol === "Club") {
+    $where[] = "(p.club_local_id = ? OR p.club_visitante_id = ?)";
+    $parametros[] = $club_id_usuario;
+    $parametros[] = $club_id_usuario;
+}
+
+// Filtro por competición
+if (!empty($filtro_competencia)) {
+    $where[] = "p.competencia = ?";
+    $parametros[] = $filtro_competencia;
+}
+
+// Filtro por categoría
+if (!empty($filtro_categoria)) {
+    $where[] = "p.categoria_id = ?";
+    $parametros[] = $filtro_categoria;
+}
+
+$sql = "
     SELECT p.*, cl.nombre AS local, cv.nombre AS visitante, cat.nombre AS categoria
     FROM partidos p
     JOIN club cl ON cl.id = p.club_local_id
     JOIN club cv ON cv.id = p.club_visitante_id
     JOIN categorias cat ON cat.id = p.categoria_id
-    $filtro_club
-    ORDER BY p.fecha_partido DESC, p.id DESC
-");
+";
+
+if (!empty($where)) {
+    $sql .= " WHERE " . implode(" AND ", $where);
+}
+
+$sql .= " ORDER BY p.fecha_partido DESC, p.id DESC";
+
+$consulta = $pdo->prepare($sql);
 $consulta->execute($parametros);
 $partidos = $consulta->fetchAll(PDO::FETCH_OBJ);
 
 if ($rol === "Admin") {
     $clubes     = $pdo->query("SELECT id, nombre FROM club WHERE rol='Club' ORDER BY nombre")->fetchAll(PDO::FETCH_OBJ);
-    $categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre")->fetchAll(PDO::FETCH_OBJ);
 }
+
+// Obtener categorías para el selector
+$categorias = $pdo->query("SELECT id, nombre FROM categorias ORDER BY nombre")->fetchAll(PDO::FETCH_OBJ);
+
+// Obtener competencias únicas existentes en la tabla partidos para el selector de competición
+$competencias = $pdo->query("SELECT DISTINCT competencia FROM partidos WHERE competencia IS NOT NULL AND competencia != '' ORDER BY competencia")->fetchAll(PDO::FETCH_OBJ);
 
 $estados = [
     "sin_fecha"  => "Sin fecha",
@@ -75,11 +110,51 @@ $badge = [
 </div>
 
 <div class="container mt-4">
-    <?php if ($rol === "Admin"): ?>
-        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#modalCrear">
-            <i class="ti ti-plus"></i> Nuevo partido
-        </button>
-    <?php endif; ?>
+    <h2 class="text-center mb-4 font-weight-bold">Fixture de Partidos</h2>
+
+    <!-- Formulario de Filtros -->
+    <div class="card mb-4 shadow-sm p-3 bg-body-tertiary rounded">
+        <form method="GET" action="partidos.php" class="row g-3 align-items-end">
+            
+            <!-- Selector de Competición -->
+            <div class="col-md-4">
+                <label for="competencia" class="form-label font-weight-bold">Competición</label>
+                <select class="form-select" id="competencia" name="competencia">
+                    <option value="">Todas las competiciones</option>
+                    <?php foreach ($competencias as $comp): ?>
+                        <option value="<?= htmlspecialchars($comp->competencia) ?>" <?= $filtro_competencia === $comp->competencia ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($comp->competencia) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- Selector de Categoría -->
+            <div class="col-md-4">
+                <label for="filtro_categoria" class="form-label font-weight-bold">Categoría</label>
+                <select class="form-select" id="filtro_categoria" name="categoria_id">
+                    <option value="">Todas las categorías</option>
+                    <?php foreach ($categorias as $c): ?>
+                        <option value="<?= $c->id ?>" <?= $filtro_categoria == $c->id ? 'selected' : '' ?>>
+                            <?= htmlspecialchars($c->nombre) ?>
+                        </option>
+                    <?php endforeach; ?>
+                </select>
+            </div>
+
+            <!-- Botones de Acción -->
+            <div class="col-md-4 d-flex justify-content-start gap-2">
+                <button type="submit" class="btn btn-primary d-inline-flex align-items-center gap-1 text-nowrap"
+                    style="background-color:#226846;border-color:#1a4731;">
+                    <i class="ti ti-zoom"></i> Filtrar
+                </button>
+                <a href="partidos.php" class="btn btn-secondary d-inline-flex align-items-center gap-1 text-nowrap">
+                    <i class="ti ti-refresh"></i> Limpiar
+                </a>
+            </div>
+
+        </form>
+    </div>
 
     <div class="table-responsive">
         <table class="table table-striped text-center align-middle">
@@ -98,7 +173,7 @@ $badge = [
             </thead>
             <tbody>
             <?php if (empty($partidos)): ?>
-                <tr><td colspan="<?= $rol === "Admin" ? 9 : 8 ?>" class="text-muted py-4">No hay partidos registrados.</td></tr>
+                <tr><td colspan="<?= $rol === "Admin" ? 9 : 8 ?>" class="text-muted py-4">No hay partidos registrados que coincidan con los filtros.</td></tr>
             <?php else: foreach ($partidos as $p): ?>
                 <tr>
                     <td><span class="badge bg-warning text-dark"><?= htmlspecialchars($p->competencia ?? 'Liga') ?></span></td>
@@ -144,9 +219,16 @@ $badge = [
                     <?php endif; ?>
                 </tr>
             <?php endforeach; endif; ?>
+            
             </tbody>
         </table>
     </div>
+    <br>
+    <?php if ($rol === "Admin"): ?>
+        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#modalCrear">
+            <i class="ti ti-plus"></i> Nuevo partido
+        </button>
+    <?php endif; ?>
 </div>
 </main>
 

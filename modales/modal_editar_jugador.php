@@ -1,3 +1,5 @@
+
+
 <div class="modal fade" id="modalEditar" tabindex="-1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content modal-login-caja">
@@ -35,6 +37,7 @@
                             <?= options_cat($categorias) ?>
                         </select>
                     </div>
+
 
                     <div class="row g-2 mb-3">
                         <div class="col-md-4">

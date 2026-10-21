@@ -22,11 +22,19 @@
                     <?php endforeach; ?>
 
                     <div class="mb-3">
-                        <label for="crear_club_id" class="form-label">Club</label>
-                        <select class="form-select" id="crear_club_id" name="club_id" required>
-                            <?= options_club($clubes) ?>
-                        </select>
-                    </div>
+    <label for="crear_club_id" class="form-label">Club</label>
+    <select class="form-select" id="crear_club_id" name="club_id" required>
+        <?php 
+        $clubes_filtrados = array_filter($clubes, function($club) {
+            $rol = is_array($club) ? ($club['rol'] ?? '') : ($club->rol ?? '');
+            $nombre = is_array($club) ? ($club['nombre'] ?? '') : ($club->nombre ?? 'Administrador');
+
+            return strtolower($rol) !== 'admin' && strtolower($nombre) !== 'administrador';
+        });
+        ?>
+        <?= options_club($clubes_filtrados) ?>
+    </select>
+</div>
                     <div class="mb-3">
                         <label for="crear_categoria_id" class="form-label">Categoría</label>
                         <select class="form-select" id="crear_categoria_id" name="categoria_id" required>

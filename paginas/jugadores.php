@@ -104,18 +104,23 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                 </div>
 
                 <?php if ($rol !== 'Club'): ?>
-                    <div class="col-md-3">
-                        <label for="filtro_club" class="form-label font-weight-bold">Club</label>
-                        <select class="form-select" id="filtro_club" name="club_id">
-                            <option value="">Todos los clubes</option>
-                            <?php foreach ($clubes as $c): ?>
-                                <option value="<?= $c->id ?>" <?= $filtro_club == $c->id ? 'selected' : '' ?>>
-                                    <?= htmlspecialchars($c->nombre) ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                <?php endif; ?>
+    <div class="col-md-3">
+        <label for="filtro_club" class="form-label font-weight-bold">Club</label>
+        <select class="form-select" id="filtro_club" name="club_id">
+            <option value="">Todos los clubes</option>
+            <?php foreach ($clubes as $c): ?>
+                <?php 
+                // Excluir el registro si el rol es 'Admin' o el nombre es 'Administrador'
+                $rol_club = $c->rol ?? '';
+                if (strtolower($rol_club) === 'admin' || strtolower($c->nombre) === 'administrador') continue; 
+                ?>
+                <option value="<?= $c->id ?>" <?= $filtro_club == $c->id ? 'selected' : '' ?>>
+                    <?= htmlspecialchars($c->nombre) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+<?php endif; ?>
 
                 <div class="col-md-3 d-flex justify-content-center gap-2">
                     <button type="submit" class="btn btn-primary d-inline-flex align-items-center gap-1 text-nowrap"
@@ -172,7 +177,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                             <?php if ($rol === 'Club'): ?>
                                 <td>
                                     <button class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#modalEditarFecha" data-id="<?= $j->id ?>"
+                                        data-bs-target="#modalEditarClub" data-id="<?= $j->id ?>"
                                         data-vencimiento="<?= htmlspecialchars($j->carnet_vencimiento ?? '', ENT_QUOTES) ?>">
                                         <i class="ti ti-edit"></i>
                                     </button>
@@ -200,9 +205,9 @@ function options_cat(array $categorias, string $selected_id = ''): string {
 
 <!-- Modales -->
 <?php 
-    include '../modales/modal_editar_fecha.php';
     include '../modales/modal_crear_jugador.php';
     include '../modales/modal_editar_jugador.php';
+    include '../modales/modal_editar_jugador_club.php';
     include '../modales/modal_carnet_jugador.php';
 ?>
 
