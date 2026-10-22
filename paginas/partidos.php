@@ -141,20 +141,22 @@ $badge = [
                 </select>
             </div>
 
- <div class="col-md-4 d-flex justify-content-start gap-2">
-    <button type="submit" class="btn btn-primary ..." style="...">
-        <i class="ti ti-zoom"></i> Filtrar
-    </button>
-    <a href="partidos.php" class="btn btn-secondary ...">
-        <i class="ti ti-refresh"></i> Limpiar
-    </a>
-    <?php if ($rol === "Admin"): ?>
-        <button type="button" class="btn btn-success d-inline-flex align-items-center gap-1 text-nowrap"
-                data-bs-toggle="modal" data-bs-target="#modalCrear">
-            <i class="ti ti-plus"></i> Nuevo partido
-        </button>
-    <?php endif; ?>
-</div>
+            <div class="col-md-4 d-flex justify-content-start gap-2">
+                <button type="submit" class="btn btn-primary d-inline-flex align-items-center gap-1 text-nowrap">
+                    <i class="ti ti-zoom"></i> Filtrar
+                </button>
+                <a href="partidos.php" class="btn btn-secondary d-inline-flex align-items-center gap-1 text-nowrap">
+                    <i class="ti ti-refresh"></i> Limpiar
+                </a>
+                <?php if ($rol === "Admin"): ?>
+                    <button type="button" class="btn btn-success d-inline-flex align-items-center gap-1 text-nowrap"
+                            data-bs-toggle="modal" data-bs-target="#modalCrear">
+                        <i class="ti ti-plus"></i> Nuevo partido
+                    </button>
+                <?php endif; ?>
+            </div>
+        </form>
+    </div>
 
     <div class="table-responsive">
         <table class="table table-striped text-center align-middle">
