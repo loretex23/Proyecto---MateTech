@@ -110,7 +110,7 @@ $comunicados = $pdo->query("SELECT * FROM comunicados ORDER BY fecha_publicacion
                     <div class="mb-3">
                         <label for="tipo" class="form-label">Tipo de comunicado</label>
                         <select id="tipo" name="tipo" class="form-select" required>
-                            <?php foreach (["General","Suspensión","Lesión","Partido","Sanción","Horario","Competencia","Importante"] as $t): ?>
+                            <?php foreach (["General","Suspensión","Importante"] as $t): ?>
                                 <option value="<?= $t ?>"><?= $t ?></option>
                             <?php endforeach; ?>
                         </select>

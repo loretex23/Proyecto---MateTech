@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 16-10-2026 a las 14:14:25
+-- Tiempo de generación: 21-10-2026 a las 16:04:09
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -74,7 +74,7 @@ INSERT INTO `club` (`id`, `Usuario`, `Contraseña_hash`, `nombre`, `logo_url`, `
 (1, 'admin@admin.com', '$2y$10$48dDKv14h4cxG5uaZVp6leHKlu17hB7jk5W.99JjbnpUXDfx4u0ZS', 'Administrador', NULL, 'Admin', NULL, NULL, NULL, NULL),
 (2, 'club1@gmail.com', '$2y$10$wYi6jA2Pma/PwMTKGmKUeuTKGuwMMV5m4ku25tSoDX59V5z5HoJSe', 'MártirFC', NULL, 'Club', 'L. Duarte', 'C. de León', 'L. Cuello', 'J. Leites'),
 (3, 'club2@gmail.com', '$2y$10$IgO2Gv8Lc/mJo/qO.8RqhuwIXbXHDiQZE.tDACdzyWhwxHhCOPHf2', 'Sarandí FC', NULL, 'Club', '', '', '', ''),
-(6, 'peñarol@club.com', '$2y$10$IghjIaHc9sGxUsDk267CbuJkRgTqMvHSrcjnvPO2eIjFpWUs0oGLy', 'Peñarol', NULL, 'Club', 'A. Chagas', 'W. Llaguna', 'E. Nizarala', 'Pamela Ferrao'),
+(6, 'penarol@club.com', '$2y$10$IghjIaHc9sGxUsDk267CbuJkRgTqMvHSrcjnvPO2eIjFpWUs0oGLy', 'Peñarol', NULL, 'Club', 'A. Chagas', 'W. Llaguna', 'E. Nizarala', 'Pamela Ferrao'),
 (7, 'nacional@club.com', '$2y$10$VXVJWAghoB2XVC8NywX18eBCxOCHQULejSfdH2HRVb/K90uQNgIHC', 'NACIONAL DECANO', NULL, 'Club', 'Pep Guardiola', 'Rodri', 'Cuti Romero', 'Gallardo'),
 (8, 'silva@gmail.com', '$2y$10$iuDchQTVbCki5Lb6m5q5k.g.D/Vrwb2hn8d3igBLAG0mVNp6xviu2', 'SilvaFC', NULL, 'Club', NULL, NULL, NULL, NULL);
 
@@ -229,7 +229,7 @@ INSERT INTO `jugadores` (`id`, `ci`, `nombre`, `apellido`, `fecha_nacimiento`, `
 (170, 58280794, 'Kevin', 'Núñez', '2017-11-20', 7, 5, NULL, '2027-05-10', NULL, 28.40, 1.25),
 (171, 49199883, 'Leo', 'Ortega', '2017-12-24', 7, 5, NULL, '2027-05-10', NULL, 25.80, 1.21),
 (172, 51008972, 'Marcelo', 'Paredes', '2017-01-28', 7, 5, NULL, '2027-05-10', NULL, 27.00, 1.22),
-(173, 42917061, 'Nicolas', 'Quinteros', '2017-02-02', 7, 5, NULL, '2027-05-10', NULL, 26.30, 1.21),
+(173, 42917061, 'Nicolas', 'Quinteros', '2017-02-02', 6, 5, NULL, '2027-05-10', NULL, 26.30, 1.21),
 (174, 53826150, 'Oscar', 'Ramos', '2017-03-06', 7, 5, NULL, '2027-05-10', NULL, 28.10, 1.24),
 (175, 44735249, 'Pablo', 'Salinas', '2017-04-10', 7, 5, NULL, '2027-05-10', NULL, 25.60, 1.20),
 (176, 55644338, 'Rodrigo', 'Valdez', '2017-05-14', 7, 5, NULL, '2027-05-10', NULL, 27.40, 1.23),
@@ -296,7 +296,7 @@ INSERT INTO `jugadores` (`id`, `ci`, `nombre`, `apellido`, `fecha_nacimiento`, `
 (237, 57854045, 'Lucas', 'Hernández', '2014-07-04', 6, 2, NULL, '2027-08-20', NULL, 37.20, 1.39),
 (238, 48943134, 'Javier', 'Méndez', '2014-08-08', 6, 2, NULL, '2027-08-20', NULL, 38.80, 1.42),
 (239, 50032223, 'Damian', 'García', '2014-09-12', 6, 2, NULL, '2027-08-20', NULL, 36.90, 1.38),
-(240, 41121312, 'Nahuel', 'Acosta', '2014-10-16', 6, 2, NULL, '2027-08-20', NULL, 37.70, 1.40),
+(240, 41121312, 'Nahuel', 'Acosta', '2014-10-16', 7, 2, NULL, '2027-08-20', NULL, 37.70, 1.40),
 (241, 52210401, 'Diego', 'Zabala', '2014-01-08', 7, 2, NULL, '2027-09-05', NULL, 38.00, 1.41),
 (242, 43309590, 'Christian', 'Oliva', '2014-02-12', 7, 2, NULL, '2027-09-05', NULL, 37.50, 1.40),
 (243, 54498689, 'Alexis', 'Castro', '2014-03-16', 7, 2, NULL, '2027-09-05', NULL, 36.80, 1.38),
@@ -307,7 +307,7 @@ INSERT INTO `jugadores` (`id`, `ci`, `nombre`, `apellido`, `fecha_nacimiento`, `
 (248, 49944134, 'Mateo', 'Antoni', '2014-08-06', 7, 2, NULL, '2027-09-05', NULL, 37.10, 1.39),
 (249, 51033223, 'Gabriel', 'Báez', '2014-09-10', 7, 2, NULL, '2027-09-05', NULL, 36.60, 1.38),
 (250, 42122312, 'Ignacio', 'Suárez', '2014-10-14', 7, 2, NULL, '2027-09-05', NULL, 37.90, 1.41),
-(251, 70563356, 'Juan', 'Pitoco', '2017-07-18', 2, 5, NULL, '2027-04-25', 0x696d672f666f746f732f466f746f5f37303536333335372e6a7067, 38.00, 1.42);
+(251, 70563356, 'Juan', 'Pitoco', '2017-07-18', 7, 5, NULL, '2027-04-25', 0x696d672f666f746f732f466f746f5f37303536333335372e6a7067, 38.00, 1.42);
 
 -- --------------------------------------------------------
 
@@ -376,6 +376,59 @@ INSERT INTO `sanciones` (`id`, `partido_id`, `jugador_id`, `tipo_tarjeta`, `minu
 (12, 5, 212, 'amarilla', 22),
 (13, 9, 102, 'amarilla', 72);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `solicitudes_transferencia`
+--
+
+CREATE TABLE `solicitudes_transferencia` (
+  `id` int(11) NOT NULL,
+  `jugador_id` int(11) NOT NULL,
+  `club_solicitante_id` int(11) NOT NULL,
+  `club_origen_id` int(11) NOT NULL,
+  `estado` enum('pendiente','aceptada','rechazada') NOT NULL DEFAULT 'pendiente',
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `fecha_respuesta` datetime DEFAULT NULL,
+  `respondida_por` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `solicitudes_transferencia`
+--
+
+INSERT INTO `solicitudes_transferencia` (`id`, `jugador_id`, `club_solicitante_id`, `club_origen_id`, `estado`, `fecha`, `fecha_respuesta`, `respondida_por`) VALUES
+(1, 189, 2, 6, 'pendiente', '2026-10-21 10:52:07', NULL, NULL),
+(2, 173, 6, 7, 'aceptada', '2026-10-21 10:56:46', '2026-10-21 10:57:10', 'nacional@club.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `transferencias`
+--
+
+CREATE TABLE `transferencias` (
+  `id` int(11) NOT NULL,
+  `jugador_id` int(11) NOT NULL,
+  `club_origen_id` int(11) NOT NULL,
+  `club_destino_id` int(11) NOT NULL,
+  `fecha` datetime NOT NULL DEFAULT current_timestamp(),
+  `realizada_por` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `transferencias`
+--
+
+INSERT INTO `transferencias` (`id`, `jugador_id`, `club_origen_id`, `club_destino_id`, `fecha`, `realizada_por`) VALUES
+(1, 240, 6, 7, '2026-10-21 10:28:16', 'admin@admin.com'),
+(2, 191, 6, 2, '2026-10-21 10:35:11', 'admin@admin.com'),
+(3, 191, 2, 6, '2026-10-21 10:36:08', 'admin@admin.com'),
+(4, 251, 2, 3, '2026-10-21 10:36:27', 'admin@admin.com'),
+(5, 251, 3, 2, '2026-10-21 10:36:37', 'admin@admin.com'),
+(6, 173, 7, 6, '2026-10-21 10:57:10', 'nacional@club.com'),
+(7, 251, 2, 7, '2026-10-21 10:58:46', 'admin@admin.com');
+
 --
 -- Índices para tablas volcadas
 --
@@ -443,6 +496,24 @@ ALTER TABLE `sanciones`
   ADD KEY `jugador_id` (`jugador_id`);
 
 --
+-- Indices de la tabla `solicitudes_transferencia`
+--
+ALTER TABLE `solicitudes_transferencia`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jugador_id` (`jugador_id`),
+  ADD KEY `club_solicitante_id` (`club_solicitante_id`),
+  ADD KEY `club_origen_id` (`club_origen_id`);
+
+--
+-- Indices de la tabla `transferencias`
+--
+ALTER TABLE `transferencias`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `jugador_id` (`jugador_id`),
+  ADD KEY `club_origen_id` (`club_origen_id`),
+  ADD KEY `club_destino_id` (`club_destino_id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -495,6 +566,18 @@ ALTER TABLE `sanciones`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT de la tabla `solicitudes_transferencia`
+--
+ALTER TABLE `solicitudes_transferencia`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de la tabla `transferencias`
+--
+ALTER TABLE `transferencias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- Restricciones para tablas volcadas
 --
 
@@ -533,6 +616,22 @@ ALTER TABLE `partidos`
 ALTER TABLE `sanciones`
   ADD CONSTRAINT `sanciones_ibfk_1` FOREIGN KEY (`partido_id`) REFERENCES `partidos` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `sanciones_ibfk_2` FOREIGN KEY (`jugador_id`) REFERENCES `jugadores` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `solicitudes_transferencia`
+--
+ALTER TABLE `solicitudes_transferencia`
+  ADD CONSTRAINT `sol_ibfk_1` FOREIGN KEY (`jugador_id`) REFERENCES `jugadores` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `sol_ibfk_2` FOREIGN KEY (`club_solicitante_id`) REFERENCES `club` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `sol_ibfk_3` FOREIGN KEY (`club_origen_id`) REFERENCES `club` (`id`) ON DELETE CASCADE;
+
+--
+-- Filtros para la tabla `transferencias`
+--
+ALTER TABLE `transferencias`
+  ADD CONSTRAINT `transferencias_ibfk_1` FOREIGN KEY (`jugador_id`) REFERENCES `jugadores` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transferencias_ibfk_2` FOREIGN KEY (`club_origen_id`) REFERENCES `club` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `transferencias_ibfk_3` FOREIGN KEY (`club_destino_id`) REFERENCES `club` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

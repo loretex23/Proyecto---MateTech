@@ -1,4 +1,4 @@
-.navbar{position:fixed;top:0;left:0;width:100%;height:68px;background-color:#1a4731;z-index:1000;display:flex;align-items:center}
+.navbar{position:fixed;top:0;left:0;width:100%;height:68px;background-color:#3c8360;z-index:1000;display:flex;align-items:center}
 .navbar-brand{display:flex;align-items:center;padding:0 10px}
 .nav-logo{width:38px;margin-bottom:3px;background-color:transparent}
 .web-logo{width:150px;margin-left:15px;margin-bottom:8px}
@@ -58,6 +58,7 @@ main{flex:1}
 .login-body{background-image:url('img/fondologin2.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;padding-top:0!important;display:flex;flex-direction:column}
 .login-wrapper{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;flex:1;min-height:calc(100vh - 65px);padding:40px 0;gap:60px}
 .login-caja{padding:40px;border-radius:16px;width:400px;height:auto;flex-shrink:0;background:rgba(0,0,0,0.50);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.15);color:#fff;animation:slideIn 0.5s ease}
+.login-closed-card{width:420px;text-align:center}
 .cont{padding:40px;border-radius:16px;width:400px;height:auto;flex-shrink:0;background:rgba(0,0,0,0.50);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.15);color:#050505}
 .brand-row{display:flex;align-items:center;gap:10px;margin-bottom:20px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,0.18)}
 .brand-icon-img{width:38px;height:38px;border-radius:8px}
@@ -139,3 +140,150 @@ footer{background:rgba(26,71,49,0.85);backdrop-filter:blur(18px);-webkit-backdro
 @keyframes slideIn{from{opacity:0;transform:translateX(-40px)}to{opacity:1;transform:translateX(0)}}
 @keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
 @media (max-width:768px){.login-wrapper{flex-direction:column;align-items:center}.login-caja{margin-left:0;width:90%}.login-logo-lateral{width:60%;margin:0 auto}.home-hero{flex-direction:column;text-align:center}.dropdown-menu{width:100%;max-width:200px}}
+
+/* Ajustes compartidos para que todas las páginas respiren en pantallas pequeñas. */
+@media (max-width: 767.98px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    body:not(.login-body) {
+        padding-left: .75rem;
+        padding-right: .75rem;
+    }
+
+    main,
+    main.container,
+    main > .container,
+    body > .container {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    main > .container,
+    main.container,
+    body > .container {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    main > .home-hero {
+        width: calc(100% - 1rem);
+        margin: .75rem auto 1.25rem;
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+
+    .container,
+    .container-fluid,
+    .row,
+    .card,
+    .card-body,
+    .modal-content {
+        min-width: 0;
+    }
+
+    .container > .card,
+    main .card {
+        margin-bottom: 1rem;
+    }
+
+    main .card-body {
+        padding: 1rem;
+    }
+
+    main h1,
+    main h2,
+    main h3,
+    main h4 {
+        overflow-wrap: anywhere;
+    }
+
+    main .table-responsive {
+        max-width: 100%;
+        margin-bottom: .5rem;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    main table {
+        margin-bottom: 0;
+    }
+
+    main form:not(.row) .form-control,
+    main form:not(.row) .form-select,
+    main form.row .form-control,
+    main form.row .form-select {
+        max-width: 100%;
+    }
+
+    .home-cards {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .home-card {
+        align-items: center;
+        text-align: center;
+        padding: 1.25rem 1rem;
+    }
+
+    .login-wrapper {
+        width: 100%;
+        min-height: 100vh;
+        min-height: 100svh;
+        justify-content: center;
+        padding: 1.5rem .75rem;
+        gap: 1.5rem;
+    }
+
+    .login-caja,
+    .login-wrapper .cont {
+        box-sizing: border-box;
+        width: min(100%, 420px);
+        max-width: 100%;
+        margin: 0 auto !important;
+        padding: clamp(1.25rem, 6vw, 2rem);
+    }
+
+    .login-logo-lateral {
+        width: min(60%, 240px);
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .login-closed-card { width: min(100%, 420px); }
+
+    footer {
+        min-height: 65px;
+        height: auto;
+        gap: .5rem;
+        padding: .75rem;
+        font-size: .8rem;
+    }
+
+    .modal-dialog {
+        margin: .75rem;
+    }
+
+    .modal-body {
+        max-height: calc(100svh - 12rem);
+        overflow-y: auto;
+    }
+}
+
+@media (max-width: 380px) {
+    body:not(.login-body) {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+
+    main .card-body {
+        padding: .75rem;
+    }
+
+    .login-wrapper {
+        padding-left: .5rem;
+        padding-right: .5rem;
+    }
+}
