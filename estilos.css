@@ -56,7 +56,7 @@ body{font-family:"Arial",monospace;margin:0;padding-top:68px;background-color:#f
 main{flex:1}
 /* ── LOGIN ── */
 .login-body{background-image:url('img/fondologin2.jpg');background-size:cover;background-position:center;background-repeat:no-repeat;background-attachment:fixed;min-height:100vh;padding-top:0!important;display:flex;flex-direction:column}
-.login-wrapper{display:flex;flex-direction:row;align-items:center;justify-content:flex-start;flex:1;min-height:calc(100vh - 65px);padding:40px 0;gap:60px}
+.login-wrapper {display: flex;flex-direction: row;align-items: center;justify-content: center;flex: 1;min-height: calc(100vh - 65px);padding: 40px 20px;padding-right: 23%; /* Esto empuja todo el bloque un poco hacia la izquierda */gap: 60px; /* Espacio original entre la caja y el logo */}
 .login-caja{padding:40px;border-radius:16px;width:400px;height:auto;flex-shrink:0;background:rgba(0,0,0,0.50);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.15);color:#fff;animation:slideIn 0.5s ease}
 .login-closed-card{width:420px;text-align:center}
 .cont{padding:40px;border-radius:16px;width:400px;height:auto;flex-shrink:0;background:rgba(0,0,0,0.50);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,0.15);color:#050505}
@@ -73,12 +73,11 @@ main{flex:1}
 .email label,.password label{color:rgba(255,255,255,0.8);font-size:13px;margin-bottom:5px;display:flex;align-items:center;gap:6px}
 .form-control{background:rgba(255,255,255,1)!important;border:1px solid rgba(121,121,121,0.22)!important;color:#000!important;border-radius:8px}
 .form-control::placeholder{color:rgba(255,255,255,0.35)}
-.login-logo-lateral{width:30%;flex-shrink:0;margin-left:auto;margin-right:17%;animation:fadeIn 0.6s ease 0.2s both}
+.login-logo-lateral {width: 28%;flex-shrink: 0;/* Quitamos el margin-right: 17% que lo desplazaba mal */animation: fadeIn 0.6s ease 0.2s both;}
 .navbar{position:fixed;top:0;left:0;width:100%;height:68px;background:rgba(26,71,49,0.55);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom:1px solid rgba(255,255,255,0.12);z-index:1000;display:flex;align-items:center}
 footer{background:rgba(26,71,49,0.85);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-top:1px solid rgba(255,255,255,0.12);color:#fff;text-align:center;padding:10px 0;width:100%;height:65px;display:flex;align-items:center;justify-content:center;font-size:14px}
 .nav-user-btn{background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.25);border-radius:8px;color:#fff;padding:6px 12px;display:flex;align-items:center;gap:6px;font-size:20px;cursor:pointer;transition:background 0.2s}
 .nav-user-btn:hover{background:rgba(255,255,255,0.20)}
-.nav-user-btn::after{display:none}
 .nav-chevron{font-size:13px;opacity:0.7}
 .dropdown-menu{background:rgba(15,40,25,0.80);backdrop-filter:blur(106px);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.3);width:max-content;border:1px solid rgb(243,239,239)}
 .dropdown-item{font-size:14px;border-radius:8px;padding:9px 16px;width:160px;margin:4px 8px;color:rgba(255,255,255,0.85);display:flex;align-items:center;gap:8px;transition:background 0.15s}
