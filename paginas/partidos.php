@@ -105,7 +105,6 @@ $badge = [
 <main>
 
 <div class="home-hero">
-    <div><h1>Partidos</h1><p>Fixture y resultados de la liga.</p></div>
     <img src="../img/Login-foto0.png" alt="LeagueFlow" class="home-hero-logo">
 </div>
 
@@ -152,7 +151,14 @@ $badge = [
                     <i class="ti ti-refresh"></i> Limpiar
                 </a>
             </div>
-
+            <!-- Fin de Formulario de Filtros -->
+             
+            <!-- Botón de Nuevo Partido para Admin -->
+    <?php if ($rol === "Admin"): ?>
+        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#modalCrear">
+            <i class="ti ti-plus"></i> Nuevo partido
+        </button>
+    <?php endif; ?>
         </form>
     </div>
 
@@ -223,12 +229,6 @@ $badge = [
             </tbody>
         </table>
     </div>
-    <br>
-    <?php if ($rol === "Admin"): ?>
-        <button class="btn btn-primary mb-4" data-bs-toggle="modal" data-bs-target="#modalCrear">
-            <i class="ti ti-plus"></i> Nuevo partido
-        </button>
-    <?php endif; ?>
 </div>
 </main>
 

@@ -91,7 +91,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                     </div>
                 </div>
 
-                <div class="col-md-3" style="width:250px;">
+                <div class="col-md-3">
                     <label for="filtro_categoria" class="form-label font-weight-bold">Categoría</label>
                     <select class="form-select" id="filtro_categoria" name="categoria_id">
                         <option value="">Todas las categorías</option>
