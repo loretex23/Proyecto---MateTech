@@ -16,7 +16,7 @@ include "../../sql/basededatos.php";
 <body class="login-body">
 
 <div class="login-wrapper">
-    <form action="../../validar_login.php" style="margin-left: 14%;" class="login-caja" method="POST">
+    <form action="../../validar_login.php" class="login-caja" style="margin-left: auto; margin-right: 15%;" method="POST">
 
         <div class="brand-row">
             <img src="../../img/logo.png" class="brand-icon-img" alt="MateTech">
