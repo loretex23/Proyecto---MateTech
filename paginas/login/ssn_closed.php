@@ -16,7 +16,7 @@ session_destroy();
 <body class="login-body">
 
 
-<div class="login-wrapper" style="margin:auto; justify-content: center;">
+<div class="login-wrapper-logout" style="margin:auto; justify-content: center;">
     <div class="login-caja login-closed-card">
         <div class="brand-row" style="justify-content: center;">
             <img src="../../img/logo.png" class="brand-icon-img" alt="MateTech">

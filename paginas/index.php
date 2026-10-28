@@ -200,13 +200,8 @@ function fila_posicion($p, $club_id_usuario) {
                                 <h5 class="mb-0" style="color:#1a4731;"><i class="ti ti-list-numbers"></i> Tabla de posiciones</h5>
                                 <div class="d-flex align-items-center gap-3">
                                     <form method="GET" action="index.php" class="m-0">
-                                        <select name="cat" class="form-select form-select-sm" onchange="this.form.submit()" aria-label="Categoría">
-                                            <?php foreach ($categorias as $cat): ?>
-                                                <option value="<?= $cat->id ?>" <?= $cat->id == $categoria_id ? 'selected' : '' ?>>
-                                                    <?= htmlspecialchars($cat->nombre) ?>
-                                                </option>
-                                            <?php endforeach; ?>
-                                        </select>
+                                        <p class="mb-0 medium text-muted">Competición: La Liga ---  Categoría: 2013</p>
+
                                     </form>
                                     <a href="posiciones.php?categoria_id=<?= $categoria_id ?>&competencia=<?= urlencode($competencia) ?>"
                                        class="small fw-bold text-decoration-none text-nowrap" style="color:#1a4731;">

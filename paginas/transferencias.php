@@ -303,50 +303,8 @@ $pendientes_admin = $pend($solicitudes_admin);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="icon" href="../img/logo.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css">
+    <link rel="icon" href="../img/logo.png" type="image/png">
     <link href="../estilos.css" rel="stylesheet">
-    <style>
-        .card { overflow: visible; }
-        .tabla-fit { table-layout: fixed; width: 100%; font-size: .85rem; margin-bottom: 0; }
-        .tabla-fit th, .tabla-fit td { white-space: normal; overflow-wrap: anywhere; word-break: break-word; padding: .5rem .4rem; vertical-align: middle; }
-        .tabla-fit .badge { white-space: normal; text-align: left; font-size: .75rem; }
-        .tabla-fit .btn-sm { padding: .2rem .45rem; }
-        .tabla-fit .acciones { display: flex; flex-wrap: wrap; gap: .25rem; justify-content: flex-end; }
-        .tabla-fit .acciones form { margin: 0; }
-        .tabla-solicitudes-wrap { width: 100%; overflow-x: auto; }
-        .tabla-solicitudes { min-width: 900px; }
-        .tabla-solicitudes .acciones { flex-wrap: nowrap; }
-        .tabla-solicitudes .acciones .btn { min-width: 2rem; }
-        .pagina-transferencias { min-width: 0; }
-        .pagina-transferencias .tabla-wrap { width: 100%; overflow-x: auto; border-radius: .5rem; }
-        .pagina-transferencias .tabla-wrap > .tabla-fit { min-width: 650px; }
-        .pagina-transferencias .acciones .btn { width: auto; min-width: 2rem; }
-        .pagina-transferencias .acciones form { flex: 0 0 auto; }
-        .pagina-transferencias .acciones form .btn { width: auto; }
-        .pagina-transferencias .card { border-radius: 1rem; }
-        .pagina-transferencias .form-label { color: inherit; }
-        @media (max-width: 767.98px) {
-            .pagina-transferencias { width: calc(100% - 1.5rem); max-width: 540px; padding: .75rem 0 1.5rem; }
-            .pagina-transferencias .home-hero { padding: 1.5rem 1rem; margin: .75rem 0 1.25rem !important; gap: 1rem; text-align: center; }
-            .pagina-transferencias .home-hero h1 { font-size: 1.8rem; }
-            .pagina-transferencias .home-hero-logo { width: 76px; }
-            .pagina-transferencias .card { padding: .5rem !important; margin-bottom: 1rem !important; }
-            .pagina-transferencias .card-body { padding: .75rem; }
-            .pagina-transferencias .card-title { margin-bottom: 1rem !important; text-align: center; line-height: 1.35; }
-            .pagina-transferencias .form-label { font-size: .95rem; }
-            .pagina-transferencias form.row { text-align: center; }
-            .pagina-transferencias form.d-flex { justify-content: center; flex-wrap: wrap; padding: .75rem; border-radius: .75rem; background: rgba(255, 255, 255, .04); }
-            .pagina-transferencias form.d-flex .form-select { max-width: 100%; }
-            .pagina-transferencias .tabla-wrap > .tabla-fit { min-width: 680px; }
-            .pagina-transferencias .acciones { gap: .5rem; }
-            .pagina-transferencias .acciones .btn { min-height: 2.25rem; }
-            .pagina-transferencias #btn_mostrar_jugadores { width: auto; }
-        }
-        @media (max-width: 380px) {
-            .pagina-transferencias { width: calc(100% - 1rem); }
-            .pagina-transferencias .home-hero h1 { font-size: 1.55rem; }
-            .pagina-transferencias .card-body { padding: .5rem; }
-        }
-    </style>
     <title>LeagueFlow - Transferencias</title>
 </head>
 <body class="fondo-body">

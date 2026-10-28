@@ -104,10 +104,6 @@ $badge = [
 <?php include "diseños/navbar.php"; ?>
 <main>
 
-<div class="home-hero">
-    <img src="../img/Login-foto0.png" alt="LeagueFlow" class="home-hero-logo">
-</div>
-
 <div class="container mt-4">
     <h2 class="text-center mb-4 font-weight-bold">Fixture de Partidos</h2>
 

@@ -1,5 +1,8 @@
 <?php
 include 'basededatos.php';
+require_once 'CIvalidator.php'; // <-- 1. Importar el validador
+
+use Leewayweb\CiValidator\CiValidator; // <-- 2. Usar el namespace correspondiente
 
 if (!empty($_POST["btnregistrar"])) {
 
@@ -11,6 +14,14 @@ if (!empty($_POST["btnregistrar"])) {
     ) {
         $ci = trim($_POST["ci"]);
 
+        // <-- 3. Validar si la cédula es formalmente válida en Uruguay
+        $validator = new CiValidator();
+        if (!$validator->validate_ci($ci)) {
+            echo "<script>alert('La cédula de identidad $ci no es válida.');window.history.back();</script>";
+            exit();
+        }
+
+        // Verificar si la cédula ya está registrada en la base de datos
         $verificar = $pdo->prepare("SELECT COUNT(*) FROM jugadores WHERE ci = ?");
         $verificar->execute([$ci]);
         if ($verificar->fetchColumn() > 0) {
@@ -30,8 +41,8 @@ if (!empty($_POST["btnregistrar"])) {
             }
         }
 
-        $masa        = !empty($_POST["masa"])        ? (float)$_POST["masa"]        : null;
-        $altura      = !empty($_POST["altura"])      ? (float)$_POST["altura"]      : null;
+        $masa       = !empty($_POST["masa"])        ? (float)$_POST["masa"]        : null;
+        $altura     = !empty($_POST["altura"])      ? (float)$_POST["altura"]      : null;
 
         $sql = $pdo->prepare("
             INSERT INTO jugadores
