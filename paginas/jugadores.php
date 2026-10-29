@@ -79,7 +79,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
 
     <div class="container mt-4">
         <h2 class="text-center mb-4 font-weight-bold">Lista de Jugadores</h2>
-
+        <!-- Formulario de Filtros -->
         <div class="card mb-4 shadow-sm p-3 bg-body-tertiary rounded">
             <form method="GET" action="jugadores.php" class="row g-3 align-items-end">
                 <div class="col-md-3">
@@ -90,7 +90,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                             placeholder="Ej: Juan, Pérez" value="<?= htmlspecialchars($busqueda) ?>">
                     </div>
                 </div>
-
+                <!--  filtro de categoría -->
                 <div class="col-md-3">
                     <label for="filtro_categoria" class="form-label font-weight-bold">Categoría</label>
                     <select class="form-select" id="filtro_categoria" name="categoria_id">
@@ -102,7 +102,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                         <?php endforeach; ?>
                     </select>
                 </div>
-
+                <!--  Filtro de clubes // Exclusivo de Admin -->
                 <?php if ($rol !== 'Club'): ?>
     <div class="col-md-3">
         <label for="filtro_club" class="form-label font-weight-bold">Club</label>
@@ -127,6 +127,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                         style="background-color:#226846;border-color:#1a4731;margin-left:15px;">
                         <i class="ti ti-zoom"></i> Filtrar
                     </button>
+                    <!-- Botón para agregar jugador, visible solo para Admin -->
                     <?php if ($rol === "Admin"): ?>
                         <button type="button" class="btn btn-primary d-inline-flex align-items-center gap-1 text-nowrap"
                             style="background-color:#226846;border-color:#1a4731;" data-bs-toggle="modal"
@@ -137,7 +138,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                 </div>
             </form>
         </div>
-
+        <!-- Datos que se muestran en la tabla de jugadores -->
         <div class="table-responsive">
             <table class="table table-striped text-center align-middle">
                 <thead>
@@ -158,6 +159,7 @@ function options_cat(array $categorias, string $selected_id = ''): string {
                         <tr>
                             <td colspan="7" class="text-muted py-4">No se encontraron jugadores que coincidan con los criterios de búsqueda.</td>
                         </tr>
+                        <!-- Mostrar datos de jugadores si existen -->
                     <?php else: foreach ($jugadores as $j): ?>
                         <tr>
                             <td>

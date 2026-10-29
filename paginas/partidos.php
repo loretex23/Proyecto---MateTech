@@ -14,7 +14,7 @@ function redirigir_a_partidos() {
     header("Location: partidos.php");
     exit();
 }
-
+// Incluye funcionalidades exclusivas para el rol de Admin
 if ($rol === "Admin") {
     if (isset($_POST["btn_crear"]))     include "../acciones/crear_partido.php";
     if (isset($_POST["btn_estado"]))    include "../acciones/cambiar_estado.php";
