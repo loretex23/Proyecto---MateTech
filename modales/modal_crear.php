@@ -25,26 +25,60 @@
               <?php endforeach; ?>
             </select>
           </div>
+<div class="row g-2 mb-3">
+    <div class="col-6">
+        <label class="form-label fw-semibold">Club Local</label>
+        <select name="club_local_id" id="club_local" class="form-select" required>
+            <option value="">Seleccione club local...</option>
+            <?php foreach ($clubes as $c): ?>
+                <option value="<?= $c->id ?>"><?= htmlspecialchars($c->nombre) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+    <div class="col-6">
+        <label class="form-label fw-semibold">Club Visitante</label>
+        <select name="club_visitante_id" id="club_visitante" class="form-select" required>
+            <option value="">Seleccione club visitante...</option>
+            <?php foreach ($clubes as $c): ?>
+                <option value="<?= $c->id ?>"><?= htmlspecialchars($c->nombre) ?></option>
+            <?php endforeach; ?>
+        </select>
+    </div>
+</div>
 
-          <div class="row g-2 mb-3">
-            <div class="col-6">
-              <label class="form-label fw-semibold">Club Local</label>
-              <select name="club_local_id" class="form-select" required>
-                <?php foreach ($clubes as $c): ?>
-                  <option value="<?= $c->id ?>"><?= htmlspecialchars($c->nombre) ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-            <div class="col-6">
-              <label class="form-label fw-semibold">Club Visitante</label>
-              <select name="club_visitante_id" class="form-select" required>
-                <?php foreach ($clubes as $c): ?>
-                  <option value="<?= $c->id ?>"><?= htmlspecialchars($c->nombre) ?></option>
-                <?php endforeach; ?>
-              </select>
-            </div>
-          </div>
+<!-- Script para evitar que elijan el mismo equipo -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const selectLocal = document.getElementById('club_local');
+    const selectVisitante = document.getElementById('club_visitante');
 
+    function actualizarOpciones() {
+        const valorLocal = selectLocal.value;
+        const valorVisitante = selectVisitante.value;
+
+        // Ocultar/Mostrar en Visitante
+        Array.from(selectVisitante.options).forEach(option => {
+            if (option.value === valorLocal && option.value !== "") {
+                option.style.display = 'none';
+            } else {
+                option.style.display = 'block';
+            }
+        });
+
+        // Ocultar/Mostrar en Local
+        Array.from(selectLocal.options).forEach(option => {
+            if (option.value === valorVisitante && option.value !== "") {
+                option.style.display = 'none';
+            } else {
+                option.style.display = 'block';
+            }
+        });
+    }
+
+    selectLocal.addEventListener('change', actualizarOpciones);
+    selectVisitante.addEventListener('change', actualizarOpciones);
+});
+</script>
           <div class="mb-3">
             <label class="form-label fw-semibold">Fecha y Hora</label>
             <input type="datetime-local" name="fecha_partido" class="form-control">
